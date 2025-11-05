@@ -87,7 +87,6 @@ public class DateInputValidator : MonoBehaviour
         if (string.IsNullOrEmpty(input)) return;
 
         int month = int.Parse(input);
-        //On formate pour 2 chiffres
         monthInput.text = month.ToString("D2");
     }
 
@@ -106,5 +105,29 @@ public class DateInputValidator : MonoBehaviour
         {
             next.Select();
         }
+    }
+
+    public string GetFormattedDate()
+    {
+        string day = dayInput.text;
+        string month = monthInput.text;
+        string year = yearInput.text;
+
+        //On check que tout est bien rempli
+        if (string.IsNullOrEmpty(day) || string.IsNullOrEmpty(month) || string.IsNullOrEmpty(year))
+        {
+            Debug.LogWarning("Tous les champs de date doivent être remplis !");
+            return null;
+        }
+
+        //On s'assure du bon formatage au cas où l'utilisateur n'a pas quitté le champ par exemple
+        if (day.Length == 1) day = "0" + day;
+        if (month.Length == 1) month = "0" + month;
+        while (year.Length < 4) year = "0" + year;
+
+        //On construit la string XX/XX/XXXX
+        string formattedDate = $"{day}/{month}/{year}";
+
+        return formattedDate;
     }
 }
