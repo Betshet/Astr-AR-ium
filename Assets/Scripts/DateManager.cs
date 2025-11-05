@@ -20,6 +20,19 @@ public class DateManager : MonoBehaviour
     Vector3 ConvertDateToVector(DateTime date, Body astralBody)
     {
         AstroVector av = Astronomy.GeoVector(astralBody, new AstroTime(date.ToUniversalTime()),Aberration.None);
+        switch (astralBody)
+        {
+            case Body.Jupiter:
+                av = av / 3;
+                break;
+            case Body.Saturn:
+                av = av / 4;
+                break;
+            case Body.Moon:
+                av = av / .01f;
+                break;
+
+        }
         return new Vector3( (float)(av.x), (float)(av.y), (float)(av.z));
     }
 
