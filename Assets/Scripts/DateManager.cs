@@ -9,10 +9,6 @@ public class DateManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        GetVectorFromUserDate("10/12/1300", Body.Mars);
-        GetVectorFromUserDate("10/12/1300", Body.Neptune);
-        GetVectorFromUserDate("10/12/1300", Body.Sun);
     }
 
     // Update is called once per frame
@@ -24,21 +20,41 @@ public class DateManager : MonoBehaviour
     Vector3 ConvertDateToVector(DateTime date, Body astralBody)
     {
         AstroVector av = Astronomy.GeoVector(astralBody, new AstroTime(date.ToUniversalTime()),Aberration.None);
-        print("Mars pos at date : " + av.x + " " + av.y);
-        return new Vector3( (float)(av.x), (float)(av.y), 0);
+        return new Vector3( (float)(av.x), (float)(av.y), (float)(av.z));
     }
 
     DateTime ConvertTextToDate(string text)
     {
         // format = "16/12/2018";
         System.DateTime dateTime = System.DateTime.Parse(text);
-        print(dateTime.ToString());
         return dateTime;
     }
 
-    Vector3 GetVectorFromUserDate(string UserInput, Body astralBody)
+    public Vector3 GetVectorFromUserDate(string UserInput, Body astralBody)
     {
         return ConvertDateToVector(ConvertTextToDate(UserInput), astralBody);
+    }
+
+    public List<Vector3> GetVectorsBetweenDates(string startDate, string endDate, Body astralBody)
+    {
+        List<Vector3> result = new List<Vector3>();
+
+        DateTime dt1 = DateTime.Parse(startDate);
+        DateTime dt2 = DateTime.Parse(endDate);
+
+        if (dt1 == dt2) return result;
+
+        bool forward = dt1 < dt2;
+        DateTime current = forward ? dt1 : dt2;
+        DateTime goal = forward ? dt2 : dt1;
+
+        while (current != goal)
+        {
+            result.Add(ConvertDateToVector(current, astralBody));
+            current = current.AddDays(1);
+        }
+
+        return result;
     }
 }
 
