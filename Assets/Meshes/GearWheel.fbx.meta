@@ -3,7 +3,52 @@ guid: 4d1cc4238f43e97419c8ae72096b1fa0
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brass
+    second: {fileID: 2100000, guid: 15d5a9f736bd64644bf789e133aa2859, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Thick Rope
+    second: {fileID: 2100000, guid: f8388546234b5d843bf31a2994fb3ada, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: brass_basecolor
+    second: {fileID: 2800000, guid: 3ddfb05ba7c16e14cbcad2642f85229f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: brass_metallic
+    second: {fileID: 2800000, guid: 71b5cc46d171742428be8313b46e5069, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: brass_normal_opengl
+    second: {fileID: 2800000, guid: 88f69144c76ca2248ac83320cecf0291, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: brass_specular
+    second: {fileID: 2800000, guid: c338102461575be428216efc7056ee93, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: fabric_rope_a1_diffuse
+    second: {fileID: 2800000, guid: b076f2e527417bd4da5b69268bf67b6f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: fabric_rope_a1_normal
+    second: {fileID: 2800000, guid: f015ba704a2b1f14dbae043c9a0c06a8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: fabric_rope_a1_rough
+    second: {fileID: 2800000, guid: 21ff7afaae5a103419a5ef2781f1141d, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
