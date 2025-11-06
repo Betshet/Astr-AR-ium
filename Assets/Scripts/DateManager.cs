@@ -11,11 +11,6 @@ public class DateManager : MonoBehaviour
     {
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     //Converts a DateTime object into a geocentric Vector3 position for the given astral body
     Vector3 ConvertDateToVector(DateTime date, Body astralBody)
     {
@@ -23,48 +18,41 @@ public class DateManager : MonoBehaviour
         switch (astralBody)
         {
             case Body.Jupiter:
-                av = av / 3;
+                av = av / 2;
                 break;
             case Body.Saturn:
-                av = av / 4;
+                av = av / 3;
                 break;
             case Body.Moon:
                 av = av / .01f;
+                break;
+            case Body.Earth:
                 break;
 
         }
         return new Vector3( (float)(av.x), (float)(av.y), (float)(av.z));
     }
 
-    DateTime ConvertTextToDate(string text)
-    {
-        // format = "16/12/2018";
-        System.DateTime dateTime = System.DateTime.Parse(text);
-        return dateTime;
-    }
-
     public Vector3 GetVectorFromUserDate(string UserInput, Body astralBody)
     {
-        return ConvertDateToVector(ConvertTextToDate(UserInput), astralBody);
+        return ConvertDateToVector(System.DateTime.Parse(UserInput), astralBody);
     }
 
-    public List<Vector3> GetVectorsBetweenDates(string startDate, string endDate, Body astralBody)
+    public List<Vector3> GetVectorsBetweenDates(DateTime startDate, DateTime endDate, Body astralBody)
     {
         List<Vector3> result = new List<Vector3>();
 
-        DateTime dt1 = DateTime.Parse(startDate);
-        DateTime dt2 = DateTime.Parse(endDate);
+        if (startDate == endDate) return result;
 
-        if (dt1 == dt2) return result;
+        bool forward = startDate < endDate;
+        DateTime current = startDate;
 
-        bool forward = dt1 < dt2;
-        DateTime current = forward ? dt1 : dt2;
-        DateTime goal = forward ? dt2 : dt1;
-
-        while (current != goal)
+        while (current != endDate)
         {
             result.Add(ConvertDateToVector(current, astralBody));
-            current = current.AddDays(1);
+
+            if (forward) current = current.AddDays(1);
+            else current = current.AddDays(-1);
         }
 
         return result;

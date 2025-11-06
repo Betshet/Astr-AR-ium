@@ -130,4 +130,9 @@ public class DateInputValidator : MonoBehaviour
 
         return formattedDate;
     }
+
+    public void OnClick_ConfirmDate()
+    {
+        GameManager.Instance.MoveAllPlanetsToDate(GetFormattedDate());
+    }
 }
