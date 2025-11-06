@@ -12,22 +12,18 @@ public class MovingObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
 
     }
+
 
     public IEnumerator MoveObjectIterate(List<Vector3> posList, float totalTime)
     {
-        float timeForEachMove = totalTime/posList.Count;
-        print("timeforeachmove : "+ timeForEachMove);
+        float timeForEachMove = (totalTime/posList.Count) * 100 * Time.deltaTime;
+        print(timeForEachMove);
 
         foreach (var pos in posList)
         {
-            StartCoroutine(MoveObjectTo(pos, timeForEachMove));
+            SetPosition(pos + GameManager.Instance.zero);
             yield return new WaitForSeconds(timeForEachMove);
         }
     }
@@ -38,11 +34,11 @@ public class MovingObject : MonoBehaviour
         Vector3 startingPos = transform.position;
         while (elapsedTime < time)
         {
-            transform.position = Vector3.Lerp(startingPos, end, (elapsedTime / time));
+            transform.position = Vector3.Lerp(startingPos, end + GameManager.Instance.zero, (elapsedTime / time));
             elapsedTime += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
-        transform.position = end;
+        transform.position = end + GameManager.Instance.zero;
     }
 
     public void SetPosition(Vector3 position)
