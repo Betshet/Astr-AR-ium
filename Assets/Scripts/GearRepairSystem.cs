@@ -14,6 +14,7 @@ public class GearRepairSystem : MonoBehaviour
 
 
     [Header("Rope Settings")]
+    [SerializeField] private float baseRopeLength = 130f;
     public float maxRopeScale = 1f;
     public float minRopeScale = 0.1f;
     public float ropeRetractionPerRotation = 0.5f;
@@ -85,37 +86,30 @@ public class GearRepairSystem : MonoBehaviour
 
     /*void UpdateRope()
     {
+        // Rétracter la corde
         Vector3 ropeScale = rope.localScale;
         ropeScale.z = currentRopeScale;
         rope.localScale = ropeScale;
-
-        float actualRopeLength = currentRopeScale;
-
-        Vector3 weightPosition = ropeTopPoint.position - ropeTopPoint.up * actualRopeLength;
-
-        weight.position = weightPosition;
-
-        rope.position = ropeTopPoint.position - ropeTopPoint.up * (actualRopeLength / 2f);
-        Debug.Log($"Rope Position: {rope.position}");
     }*/
 
     void UpdateRope()
     {
+        // Met à jour la scale (corde qui se rétracte)
         Vector3 ropeScale = rope.localScale;
         ropeScale.z = currentRopeScale;
         rope.localScale = ropeScale;
 
-        float actualRopeLength = currentRopeScale;
-        Vector3 weightPosition = weight.position + ropeTopPoint.forward * ropeRetractionPerRotation;
+        // Calcule la vraie longueur visible de la corde
+        float ropeLength = baseRopeLength * currentRopeScale;
 
-        weight.position = weightPosition;
-        //float weightZ = weight.position.z;
-        //weightZ -= 0.1f;
-        //weight.position = new Vector3(94, 94, weightZ);
-        //float actualRopeLength = currentRopeScale;
-        //Vector3 weightPosition = weight.position - ropeTopPoint.up * actualRopeLength;
+        // Calcule la position du bas de la corde (axe Z local descendant)
+        Vector3 bottomOfRope = ropeTopPoint.position - ropeTopPoint.forward * ropeLength;
 
-        //weight.position = weightPosition;
+        // Position du poids au bas de la corde
+        weight.position = bottomOfRope;
+        weight.rotation = Quaternion.identity;
+
+        Debug.Log($"Rope scale: {currentRopeScale}, Rope length: {ropeLength}, Weight pos: {weight.position}");
     }
 
     void CompleteRepair()
