@@ -123,6 +123,7 @@ MonoBehaviour:
   vitesse: 30
   axe: {x: 0, y: 0, z: 1}
   espace: 1
+  rotationActive: 1
 --- !u!1001 &2890125198540306813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -207,6 +208,7 @@ MonoBehaviour:
   vitesse: 50
   axe: {x: 0, y: 0, z: 1}
   espace: 1
+  rotationActive: 1
 --- !u!4 &3427644981624118934 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 426a8b4762407d144952bd56978a8934, type: 3}
@@ -306,6 +308,7 @@ MonoBehaviour:
   vitesse: 20
   axe: {x: 1, y: 0, z: 0}
   espace: 1
+  rotationActive: 1
 --- !u!4 &4060131931030388867 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 56b94323cff4fad4eb7e77698a47d058, type: 3}
@@ -472,6 +475,7 @@ MonoBehaviour:
   vitesse: 10
   axe: {x: 1, y: 0, z: 0}
   espace: 1
+  rotationActive: 1
 --- !u!4 &8023985244187394929 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 728992a73e75a8d4c8207c03e4ec2671, type: 3}
@@ -568,5 +572,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vitesse: 50
-  axe: {x: 1, y: 0, z: 0}
+  axe: {x: 0, y: 0, z: 1}
   espace: 1
+  rotationActive: 1

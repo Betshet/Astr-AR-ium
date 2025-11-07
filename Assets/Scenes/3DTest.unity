@@ -713,6 +713,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soleil
       objectReference: {fileID: 0}
+    - target: {fileID: 8963483866632792371, guid: c2d20340cdfa0aa43bc995ef2be27994, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -732,7 +736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 798126501782066585, guid: e670bfd7528881b47ad1a573fd028bf4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3461259916482978349, guid: e670bfd7528881b47ad1a573fd028bf4, type: 3}
       propertyPath: m_LocalPosition.x
