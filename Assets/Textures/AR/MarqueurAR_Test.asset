@@ -27,3 +27,13 @@ MonoBehaviour:
     m_SpecifySize: 1
     m_Name: affiche_A3
     m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5565371252818561647
+      m_GuidHigh: 16930694075335958695
+    m_SerializedTextureGuid:
+      m_GuidLow: 253401930344925117
+      m_GuidHigh: 13546787700859487562
+    m_Size: {x: 2, y: 1.2151239}
+    m_SpecifySize: 1
+    m_Name: Astrarium_backdropCUT
+    m_Texture: {fileID: 0}
