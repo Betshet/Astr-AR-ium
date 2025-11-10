@@ -45,7 +45,7 @@ public class MiniGearCountdown : MonoBehaviour
         // Rotation de la roue selon le temps
         if (roue != null)
         {
-            float rotationSpeed = 50f; // degrés par seconde, ajuste à ton goût
+            float rotationSpeed = 50f;
             roue.Rotate(Vector3.left, rotationSpeed * Time.deltaTime, Space.Self);
         }
 

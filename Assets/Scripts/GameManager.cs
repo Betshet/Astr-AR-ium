@@ -115,7 +115,6 @@ public class GameManager : MonoBehaviour
     {
         foreach (ARTrackedImage trackedImage in eventArgs.added)
         {
-            
         }
 
         foreach (var updatedImage in eventArgs.updated)

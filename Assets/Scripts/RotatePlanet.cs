@@ -1,0 +1,11 @@
+using UnityEngine;
+
+public class RotatePlanet : MonoBehaviour
+{
+    public float rSpeed = 100f;
+
+    void Update()
+    {
+        transform.Rotate(Vector3.up * rSpeed * Time.deltaTime);
+    }
+}
