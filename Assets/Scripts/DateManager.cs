@@ -18,10 +18,13 @@ public class DateManager : MonoBehaviour
         switch (astralBody)
         {
             case Body.Jupiter:
-                av = av / 2;
+                av = av / 3;
                 break;
             case Body.Saturn:
-                av = av / 3;
+                av = av / 4;
+                break;
+            case Body.Mars:
+                av = av / 1.4;
                 break;
             case Body.Moon:
                 av = av / .01f;
@@ -46,13 +49,24 @@ public class DateManager : MonoBehaviour
 
         bool forward = startDate < endDate;
         DateTime current = startDate;
+        int daysSpacing = 1;
+
+        double totalDays = (endDate - startDate).TotalDays;
+
+        //If the two dates are more than 200 days apart
+        if (totalDays > 200d)
+        {
+            daysSpacing = (int)(totalDays / 200d);
+        }
+        print("totaldays : " + totalDays);
+        print("daysSpacing " + daysSpacing);
+        print("forward " + forward);
 
         while (current != endDate)
         {
-            result.Add(ConvertDateToVector(current, astralBody));
-
-            if (forward) current = current.AddDays(1);
-            else current = current.AddDays(-1);
+            result.Add(ConvertDateToVector(current, astralBody) + GameManager.Instance.zero);
+            if (forward) current = current.AddDays(daysSpacing);
+            else current = current.AddDays(-daysSpacing);
         }
 
         return result;

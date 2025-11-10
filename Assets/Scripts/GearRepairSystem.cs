@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GearRepairSystem : MonoBehaviour
@@ -35,6 +36,16 @@ public class GearRepairSystem : MonoBehaviour
 
     public void ActivateMechanism()
     {
+        GameManager.Instance.DateCanvas.SetActive(false);
+        GameManager.Instance.ResetPosition();
+
+        StartCoroutine(ActivateMechanism_Delay());
+    }
+
+    IEnumerator ActivateMechanism_Delay()
+    {
+        yield return new WaitForSeconds(2);
+
         Debug.Log("Mécanisme activé !");
         isActive = true;
         currentRopeScale = maxRopeScale;
@@ -110,13 +121,13 @@ public class GearRepairSystem : MonoBehaviour
         isActive = false;
         repairCanvas.SetActive(false);
         mechanismCamera.SetActive(false);
-
-        // Après avoir désactivé le mécanisme
-        MiniGearCountdown miniTimer = FindObjectOfType<MiniGearCountdown>();
-        if (miniTimer != null)
-        {
-            miniTimer.ResetFicelle();
-        }
+        
+        
+        GameManager gm = GameManager.Instance;
+        gm.GetComponent<MiniGearCountdown>().ResetFicelle();
+        gm.DateCanvas.SetActive(true);
+        gm.PlanetsDeployed = false;
+        gm.MoveAllPlanetsToDate(gm.currentDate.ToString());
     }
 
     public void RotateGear(float rotation)
