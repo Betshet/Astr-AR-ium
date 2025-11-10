@@ -14,10 +14,10 @@ public class GearRepairSystem : MonoBehaviour
 
 
     [Header("Rope Settings")]
-    [SerializeField] private float baseRopeLength = 130f;
+    public float baseRopeLength = 240f;
     public float maxRopeScale = 1f;
     public float minRopeScale = 0.1f;
-    public float ropeRetractionPerRotation = 0.5f;
+    public float ropeRetractionPerRotation = 0.05f;
     private float currentRopeScale;
 
     [Header("Rotation Settings")]
@@ -84,14 +84,6 @@ public class GearRepairSystem : MonoBehaviour
         }
     }
 
-    /*void UpdateRope()
-    {
-        // Rétracter la corde
-        Vector3 ropeScale = rope.localScale;
-        ropeScale.z = currentRopeScale;
-        rope.localScale = ropeScale;
-    }*/
-
     void UpdateRope()
     {
         // Met à jour la scale (corde qui se rétracte)
@@ -118,6 +110,13 @@ public class GearRepairSystem : MonoBehaviour
         isActive = false;
         repairCanvas.SetActive(false);
         mechanismCamera.SetActive(false);
+
+        // Après avoir désactivé le mécanisme
+        MiniGearCountdown miniTimer = FindObjectOfType<MiniGearCountdown>();
+        if (miniTimer != null)
+        {
+            miniTimer.ResetFicelle();
+        }
     }
 
     public void RotateGear(float rotation)

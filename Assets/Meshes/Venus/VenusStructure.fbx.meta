@@ -3,7 +3,27 @@ guid: ba304e442e979054b8777680d442af11
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: brass_basecolor
+    second: {fileID: 2800000, guid: c87a481901e2e1e47862ee2c5e92ab74, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: brass_metallic
+    second: {fileID: 2800000, guid: 6ecc2720a95d773428ea81129b5bada5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: brass_normal_opengl
+    second: {fileID: 2800000, guid: 359b796c58fddea4597688f9b1efa6a4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: brass_specular
+    second: {fileID: 2800000, guid: 803b6f817e0d3e24fb2fb49e4cf98b72, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
