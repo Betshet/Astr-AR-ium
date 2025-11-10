@@ -25,6 +25,12 @@ public class GameManager : MonoBehaviour
 
     public ARAnchorManager anchorManager;
 
+    public List<ImagePrefabPair> imagePrefabPairs = new List<ImagePrefabPair>();
+
+    private Dictionary<string, GameObject> prefabDictionary = new Dictionary<string, GameObject>();
+    private HashSet<string> spawnedMarkers = new HashSet<string>();
+
+
     [HideInInspector]
     public Vector3 zero;
 
@@ -54,6 +60,13 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         _instance = this;
+
+        // Crée le dictionnaire à partir de la liste assignée dans l’inspector
+        foreach (var pair in imagePrefabPairs)
+        {
+            if (!prefabDictionary.ContainsKey(pair.imageName))
+                prefabDictionary.Add(pair.imageName, pair.prefab);
+        }
     }
 
 
@@ -110,7 +123,7 @@ public class GameManager : MonoBehaviour
     {
         foreach (ARTrackedImage trackedImage in eventArgs.added)
         {
-            
+            TrySpawnPrefab(trackedImage);
         }
 
         foreach (var updatedImage in eventArgs.updated)
@@ -123,10 +136,43 @@ public class GameManager : MonoBehaviour
                 instance.transform.parent = anchor.transform;
                 PlanetsSpawned = true;
             }
+
+            //Si c’est un autre marqueur, on tente de spawner le prefab associé
+            TrySpawnPrefab(updatedImage);
         }
 
         foreach (var removedImage in eventArgs.removed)
         {
         }
     }
+
+    private void TrySpawnPrefab(ARTrackedImage trackedImage)
+    {
+        string imageName = trackedImage.referenceImage.name;
+
+        // Empêche de réapparaître plusieurs fois
+        if (spawnedMarkers.Contains(imageName)) return;
+        if (trackedImage.trackingState != TrackingState.Tracking) return;
+
+        // Vérifie si le marqueur correspond à un prefab dans la liste
+        if (prefabDictionary.TryGetValue(imageName, out GameObject prefab))
+        {
+            Pose pose = new Pose(trackedImage.transform.position, trackedImage.transform.rotation);
+            ARAnchor anchor = anchorManager.AddAnchor(pose);
+
+            if (anchor != null)
+            {
+                Instantiate(prefab, pose.position, pose.rotation, anchor.transform);
+                spawnedMarkers.Add(imageName);
+                Debug.Log($"Prefab '{prefab.name}' instancié pour le marqueur '{imageName}'");
+            }
+        }
+    }
+}
+
+[Serializable]
+public class ImagePrefabPair
+{
+    public string imageName;
+    public GameObject prefab;
 }

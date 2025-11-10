@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 8963483866632792371}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.16383696, y: 0.5866779, z: 0.11000344}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -129,6 +129,7 @@ MonoBehaviour:
   vitesse: 50
   axe: {x: 1, y: 0, z: 0}
   espace: 1
+  rotationActive: 1
 --- !u!1001 &4367826551614980737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -217,6 +218,7 @@ MonoBehaviour:
   vitesse: 50
   axe: {x: 0, y: 0, z: 1}
   espace: 1
+  rotationActive: 1
 --- !u!4 &4257900998615016810 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4a67d7668c9378e4a91935cc1475550b, type: 3}
@@ -311,6 +313,7 @@ MonoBehaviour:
   vitesse: 50
   axe: {x: 0, y: 0, z: 1}
   espace: 1
+  rotationActive: 1
 --- !u!1001 &7426030656699394823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -473,6 +476,7 @@ MonoBehaviour:
   vitesse: 50
   axe: {x: 1, y: 0, z: 0}
   espace: 1
+  rotationActive: 1
 --- !u!1001 &8279441301024326903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -569,6 +573,7 @@ MonoBehaviour:
   vitesse: 20
   axe: {x: 1, y: 0, z: 0}
   espace: 1
+  rotationActive: 1
 --- !u!1001 &8764238597486792750
 PrefabInstance:
   m_ObjectHideFlags: 0
