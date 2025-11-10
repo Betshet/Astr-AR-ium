@@ -23,6 +23,11 @@
         //_NebulaIntensity("Nebula Intensity", Range(0.0, 2.0)) = 0.6
         //_NebulaOpacity("Nebula Opacity", Range(0.0, 1.0)) = 0.25
         //_NebulaScale("Nebula Scale", Range(0.1, 5.0)) = 1.5
+
+        _ClusterDensityBoost("Cluster Density Boost", Range(0.0, 0.05)) = 0.01
+        _ClusterStarBoost("Cluster Star Brightness", Range(0.0, 3.0)) = 1.5
+        _ClusterNebulaBoost("Cluster Nebula Boost", Range(0.0, 3.0)) = 1.0
+
     }
 
         SubShader
@@ -56,8 +61,10 @@
             struct v2f
             {
                 float2 uv     : TEXCOORD0;
+                float3 dir    : TEXCOORD1;   // direction sur la sphère
                 float4 vertex : SV_POSITION;
             };
+
 
             fixed4 _StarColor;
             float  _Density;
@@ -80,13 +87,23 @@
             //float  _NebulaOpacity;
             //float  _NebulaScale;
 
+            float  _ClusterDensityBoost;
+            float  _ClusterStarBoost;
+            float  _ClusterNebulaBoost;
+
+
             v2f vert(appdata v)
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = v.uv;
+
+                // Direction depuis le centre de la sphère (en objet), normalisée
+                o.dir = normalize(v.vertex.xyz);
+
                 return o;
             }
+
 
             // Random simple 2D
             float hash21(float2 p)
@@ -115,19 +132,63 @@
             fixed4 frag(v2f i) : SV_Target
             {
                 float2 uv = i.uv;
+                float3 dir3 = normalize(i.dir);  // direction sur la sphère
                 float  time = _Time.y;
 
                 //========================
-                // 1) ÉTOILES
+                // 0) BASE COMMUNE POUR NÉBULEUSE & CLUSTERS
                 //========================
+                // Axe principal de la voie lactée
+                float3 bandAxis = normalize(float3(1.0, 0.3, 0.1));
+
+                // Vecteur orthogonal pour "balayer" la bande
+                float3 tmp = (abs(bandAxis.y) < 0.99) ? float3(0,1,0) : float3(1,0,0);
+                float3 ortho1 = normalize(cross(bandAxis, tmp));
+
+                float  scale = _NebulaScale;
+
+                // Coordonnée perpendiculaire à la bande (pour répartir couleurs / clusters)
+                float coordDir = dot(dir3, ortho1) * 2.0 * scale;
+                // Distance par rapport au plan de la voie lactée
+                float alongDir = dot(dir3, bandAxis) * scale;
+
+                //========================
+                // 1) CLUSTER MASK : où les amas sont plus denses
+                //========================
+
+                // Amas plus serrés autour du plan de la voie lactée
+                float clusterThickness = exp(-alongDir * alongDir * 10.0);
+
+                // Centres mobiles des amas (gauche / centre / droite)
+                float cc1 = -0.9 + 0.9 * sin(time * 0.11 + 0.3);
+                float cc2 = 0.0 + 0.9 * sin(time * 0.13 + 1.7);
+                float cc3 = 0.9 + 0.9 * sin(time * 0.09 + 3.2);
+
+                // Gaussiennes étroites : amas assez localisés
+                float cl1 = exp(-(coordDir - cc1) * (coordDir - cc1) * 12.0);
+                float cl2 = exp(-(coordDir - cc2) * (coordDir - cc2) * 12.0);
+                float cl3 = exp(-(coordDir - cc3) * (coordDir - cc3) * 12.0);
+
+                float clusterMask = (cl1 + cl2 + cl3) * clusterThickness;
+                clusterMask = saturate(clusterMask);  // 0 → pas d’amas, 1 → plein d’amas
+
+                //========================
+                // 2) ÉTOILES (avec amas)
+                //========================
+
                 float2 grid = uv * _Density;
                 float2 cell = floor(grid);
                 float2 f = frac(grid);
 
                 float rnd = hash21(cell);
 
-                // Plus la valeur est basse, plus il y a d'étoiles
-                float starMask = step(0.992, rnd);
+                // Densité de base des étoiles
+                float baseThreshold = 0.992;
+
+                // Dans les amas : seuil plus bas → plus de cellules deviennent des étoiles
+                float threshold = baseThreshold - clusterMask * _ClusterDensityBoost;
+
+                float starMask = step(threshold, rnd);
 
                 float2 centerCell = float2(0.5, 0.5);
                 float d = distance(f, centerCell);
@@ -148,47 +209,35 @@
 
                 float starBrightness = starMask * shape * twinkle;
 
+                // Dans les amas : étoiles plus lumineuses
+                starBrightness *= (1.0 + clusterMask * _ClusterStarBoost);
+
                 fixed4 starCol = _StarColor;
                 starCol.rgb *= starBrightness;
                 starCol.a = starBrightness * _Opacity * 1.2;
 
                 //========================
-                // 2) NÉBULEUSE : 3 ZONES LOIN L'UNE DE L'AUTRE
+                // 3) NÉBULEUSE LARGE (dégradé de fond)
                 //========================
 
-                // Coordonnées centrées + échelle
-                float2 pCenter = (uv - 0.5) * _NebulaScale;
+                // Bande principale de la voie lactée : plus forte quand alongDir ≈ 0
+                float thickness = exp(-alongDir * alongDir * 4.0);
 
-                // Direction générale de la voie lactée
-                float2 dir = normalize(float2(1.0, 0.3));
-                float2 ortho = float2(-dir.y, dir.x); // perpendiculaire
+                // Centres des trois grandes zones de couleur (plus larges que les amas)
+                float c1 = -0.8 + 0.8 * sin(time * 0.05 + 0.0);
+                float c2 = 0.0 + 0.8 * sin(time * 0.06 + 1.7);
+                float c3 = 0.8 + 0.8 * sin(time * 0.04 + 3.1);
 
-                // Coordonnée perpendiculaire à la bande, étendue sur ~[-2, 2]
-                float coord = dot(ortho, pCenter) * 2.0;
+                float zone1 = exp(-(coordDir - c1) * (coordDir - c1) * 3.0);
+                float zone2 = exp(-(coordDir - c2) * (coordDir - c2) * 3.0);
+                float zone3 = exp(-(coordDir - c3) * (coordDir - c3) * 3.0);
 
-                // Centres de base des 3 zones : gauche, centre, droite
-                // Avec grande amplitude pour qu’elles parcourent tout le champ
-                float c1 = -0.8 + 0.8 * sin(time * 0.08 + 0.0);
-                float c2 = 0.0 + 0.8 * sin(time * 0.09 + 1.7);
-                float c3 = 0.8 + 0.8 * sin(time * 0.07 + 3.1);
+                zone1 *= thickness;
+                zone2 *= thickness;
+                zone3 *= thickness;
 
-                // Profils en cloche lisses (zones assez larges)
-                float zone1 = exp(-(coord - c1) * (coord - c1) * 3.0);
-                float zone2 = exp(-(coord - c2) * (coord - c2) * 3.0);
-                float zone3 = exp(-(coord - c3) * (coord - c3) * 3.0);
-
-                // Radial : plus fort au centre du dôme
-                float radial = 1.0 - saturate(length(pCenter) * 1.4);
-                radial = pow(radial, 1.6);
-
-                zone1 *= radial;
-                zone2 *= radial;
-                zone3 *= radial;
-
-                // Somme pour normaliser
                 float zoneSum = zone1 + zone2 + zone3 + 1e-4;
 
-                // Mélange des 3 couleurs selon la zone dominante
                 float3 nebRGB =
                     _NebulaColor1.rgb * zone1 +
                     _NebulaColor2.rgb * zone2 +
@@ -199,12 +248,15 @@
                 float nebulaMask = saturate(zoneSum);
                 nebulaMask = pow(nebulaMask, 1.2);
 
+                // Dans les amas : on renforce un peu la nébuleuse → effet "bout de voie lactée"
+                nebulaMask *= (1.0 + clusterMask * _ClusterNebulaBoost);
+
                 fixed4 nebCol;
                 nebCol.rgb = nebRGB * nebulaMask * _NebulaIntensity;
                 nebCol.a = nebulaMask * _NebulaOpacity;
 
                 //========================
-                // 3) COMBINAISON
+                // 4) COMBINAISON
                 //========================
                 fixed4 finalCol;
                 finalCol.rgb = nebCol.rgb + starCol.rgb;
