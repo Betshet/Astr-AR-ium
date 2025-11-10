@@ -5,20 +5,34 @@ using UnityEngine;
 using CosineKitty;
 using System;
 using Unity.VisualScripting;
+using UnityEngine.XR.ARFoundation;
+using UnityEngine.UIElements;
+using UnityEngine.XR.ARSubsystems;
+using System.Security.Principal;
 
 public class GameManager : MonoBehaviour
 {
     List<MovingObject> Planets;
 
     [SerializeField]
+    GameObject SolarSystemPrefab;
+
+    [SerializeField]
     DateManager dateManager;
 
+    [SerializeField]
+    ARTrackedImageManager trackedImageManager;
+
+    public ARAnchorManager anchorManager;
+
+    [HideInInspector]
     public Vector3 zero;
 
     [SerializeField]
     public Vector3 zeroOffset;
 
     public bool PlanetsDeployed = false;
+    bool PlanetsSpawned = false;
     public DateTime currentDate = DateTime.Now;
 
     private static GameManager _instance;
@@ -86,5 +100,33 @@ public class GameManager : MonoBehaviour
             PlanetsDeployed = true;
         }
         currentDate = TargetDate;
+    }
+
+    void OnEnable() => trackedImageManager.trackedImagesChanged += OnTrackedImageChanged;
+
+    void OnDisable() => trackedImageManager.trackedImagesChanged -= OnTrackedImageChanged;
+
+    void OnTrackedImageChanged(ARTrackedImagesChangedEventArgs eventArgs)
+    {
+        foreach (ARTrackedImage trackedImage in eventArgs.added)
+        {
+            
+        }
+
+        foreach (var updatedImage in eventArgs.updated)
+        {
+            if(!PlanetsSpawned)
+            {
+                Pose pose = new(updatedImage.transform.position, Quaternion.identity);
+                ARAnchor anchor = anchorManager.AddAnchor(pose);
+                var instance = Instantiate(SolarSystemPrefab, updatedImage.transform.position, Quaternion.identity);
+                instance.transform.parent = anchor.transform;
+                PlanetsSpawned = true;
+            }
+        }
+
+        foreach (var removedImage in eventArgs.removed)
+        {
+        }
     }
 }
