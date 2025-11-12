@@ -519,7 +519,7 @@ MonoBehaviour:
   poids: {fileID: 307423775}
   corde: {fileID: 350134093}
   roue: {fileID: 99930710}
-  duration: 20
+  duration: 5000
   startPoint: {fileID: 211899750}
   endPoint: {fileID: 908584988}
   systemToActivate: {fileID: 812687561}

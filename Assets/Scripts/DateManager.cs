@@ -43,30 +43,44 @@ public class DateManager : MonoBehaviour
 
     public List<Vector3> GetVectorsBetweenDates(DateTime startDate, DateTime endDate, Body astralBody)
     {
+        //List of vectors corresponding to the position of the given celestial body over the given period of time
         List<Vector3> result = new List<Vector3>();
 
         if (startDate == endDate) return result;
 
+        //We can go forwards or backwards in time
         bool forward = startDate < endDate;
+
         DateTime current = startDate;
+
+        //The steps between each selected day
+        //By default, we select every day
         int daysSpacing = 1;
 
-        double totalDays = (endDate - startDate).TotalDays;
+        double totalDays = Math.Abs((endDate - startDate).TotalDays);
 
-        //If the two dates are more than 200 days apart
+        //If the two dates are more than 200 days apart, we adjust the steps between each day
         if (totalDays > 200d)
         {
             daysSpacing = (int)(totalDays / 200d);
         }
+
         print("totaldays : " + totalDays);
         print("daysSpacing " + daysSpacing);
         print("forward " + forward);
 
-        while (current != endDate)
+        bool continueLoop = true;
+        while (continueLoop)
         {
+            //Convert the date of the current day to a vector in space
             result.Add(ConvertDateToVector(current, astralBody) + GameManager.Instance.zero);
+
+            //If going fowards, we advance the current time, else we go backwards
             if (forward) current = current.AddDays(daysSpacing);
             else current = current.AddDays(-daysSpacing);
+
+            //If we have gone beyond the end date, stop the loop
+            continueLoop = forward ? current < endDate : current > startDate;
         }
 
         return result;
