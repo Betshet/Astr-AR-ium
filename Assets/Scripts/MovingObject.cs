@@ -26,7 +26,7 @@ public class MovingObject : MonoBehaviour
     public void MoveObjectIterate(List<Vector3> posList, float totalTime)
     {
         float timeForEachMove = (totalTime/posList.Count);
-        print(posList.Count);
+        print("Number of pos in vector list " + posList.Count);
         transform.DOPath(posList.ToArray(), totalTime);
     }
 

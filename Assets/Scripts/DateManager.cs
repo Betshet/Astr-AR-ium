@@ -18,16 +18,25 @@ public class DateManager : MonoBehaviour
         switch (astralBody)
         {
             case Body.Jupiter:
-                av = av / 3;
+                av = av / 5d;
                 break;
             case Body.Saturn:
-                av = av / 4;
+                av = av / 7d;
                 break;
             case Body.Mars:
-                av = av / 1.4;
+                av = av / 2.5d;
                 break;
             case Body.Moon:
-                av = av / .01f;
+                av = av / .04d;
+                break;
+            case Body.Sun:
+                av = av / 3.5d;
+                break;
+            case Body.Mercury:
+                av = av / 3.5d;
+                break;
+            case Body.Venus:
+                av = av / 2d;
                 break;
             case Body.Earth:
                 break;
@@ -80,7 +89,7 @@ public class DateManager : MonoBehaviour
             else current = current.AddDays(-daysSpacing);
 
             //If we have gone beyond the end date, stop the loop
-            continueLoop = forward ? current < endDate : current > startDate;
+            continueLoop = forward ? current < endDate : current > endDate;
         }
 
         return result;

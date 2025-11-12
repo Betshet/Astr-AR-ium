@@ -483,7 +483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SolarSystemPrefab: {fileID: 250067134326836390, guid: 5ab8004202600f1488818456d790cb7d, type: 3}
   dateManager: {fileID: 1162852084}
-  DateCanvas: {fileID: 1854461151}
+  DateCanvas: {fileID: 1287937447}
   trackedImageManager: {fileID: 2512387470422636670}
   anchorManager: {fileID: 2512387470422636671}
   zero: {x: 0, y: 0, z: 0}
@@ -676,6 +676,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1287937447 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2694351577473491090, guid: 8e063c86cf4750b4dbc42c6ea056ec2f, type: 3}
+  m_PrefabInstance: {fileID: 2015455649}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1320856464 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2935804541884562011, guid: 8e063c86cf4750b4dbc42c6ea056ec2f, type: 3}
@@ -1008,11 +1013,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1854461151 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7429444334129040126, guid: 8e063c86cf4750b4dbc42c6ea056ec2f, type: 3}
-  m_PrefabInstance: {fileID: 2015455649}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1975387847 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1697305373091102874, guid: 8e063c86cf4750b4dbc42c6ea056ec2f, type: 3}
@@ -1184,6 +1184,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2694351577473491090, guid: 8e063c86cf4750b4dbc42c6ea056ec2f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3739925813319545756, guid: 8e063c86cf4750b4dbc42c6ea056ec2f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1206,7 +1210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7429444334129040126, guid: 8e063c86cf4750b4dbc42c6ea056ec2f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
