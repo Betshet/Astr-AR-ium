@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b306270d40927474785298f4cfb42e0f, type: 3}
+  m_Name: signastro
+  m_EditorClassIdentifier: 
+  signastro:
+  - astro_sign: 0
+    date: "21 mars \u2013 19 avril"
+    element: Feu
+    planet: Mars
+    description: "Sous l\u2019impulsion de Mars, le B\xE9lier jaillit comme une \xE9tincelle
+      dans la nuit. Sa force est celle du commencement, brute et sacr\xE9e. Il agit
+      avant de douter, guid\xE9 par l\u2019instinct pur du feu. Dans son sillage,
+      tout s\u2019anime, tout s\u2019enflamme."
+  - astro_sign: 1
+    date: "20 avril \u2013 20 mai"
+    element: Terre
+    planet: "V\xE9nus"
+    description: "Guid\xE9 par V\xE9nus, le Taureau recherche la stabilit\xE9, la
+      beaut\xE9 et le confort. C\u2019est un signe qui construit lentement, avec
+      constance. Il aime les plaisirs simples, la nature, et la s\xE9curit\xE9 mat\xE9rielle.
+      Son attachement au concret refl\xE8te la douceur et la sensualit\xE9 de sa
+      plan\xE8te ma\xEEtresse."
+  - astro_sign: 2
+    date: "21 mai \u2013 20 juin"
+    element: Air
+    planet: Mercure
+    description: "Sous la gouverne de Mercure, le G\xE9meaux est curieux, vif et
+      adaptable. Il observe, apprend, communique. Il a besoin de mouvement et de
+      nouveaut\xE9 pour se sentir vivant. Sa plan\xE8te, messag\xE8re des dieux,
+      lui conf\xE8re une grande agilit\xE9 d\u2019esprit et une parole toujours en
+      \xE9veil."
+  - astro_sign: 3
+    date: "20 avril \u2013 20 mai"
+    element: Terre
+    planet: "V\xE9nus"
+    description: "Guid\xE9 par V\xE9nus, le Taureau recherche la stabilit\xE9, la
+      beaut\xE9 et le confort. C\u2019est un signe qui construit lentement, avec
+      constance. Il aime les plaisirs simples, la nature, et la s\xE9curit\xE9 mat\xE9rielle.
+      Son attachement au concret refl\xE8te la douceur et la sensualit\xE9 de sa
+      plan\xE8te ma\xEEtresse."
+  - astro_sign: 4
+    date: "23 juillet \u2013 22 ao\xFBt"
+    element: Feu
+    planet: Soleil
+    description: "R\xE9gi par le Soleil, le Lion rayonne naturellement. Il aime cr\xE9er,
+      inspirer et guider. Fier et g\xE9n\xE9reux, il cherche \xE0 exprimer le meilleur
+      de lui-m\xEAme. Son astre lui apporte confiance, chaleur et un sens inn\xE9
+      du leadership mais aussi la responsabilit\xE9 d\u2019illuminer sans dominer."
+  - astro_sign: 5
+    date: "23 ao\xFBt \u2013 22 septembre"
+    element: Terre
+    planet: Mercure
+    description: "Sous la logique de Mercure, la Vierge analyse, trie et perfectionne.
+      Elle cherche la clart\xE9 dans le d\xE9tail et la justesse dans l\u2019action.
+      Sa plan\xE8te lui donne une pens\xE9e structur\xE9e, une grande pr\xE9cision
+      et un besoin d\u2019utilit\xE9. La Vierge agit avec discernement et modestie."
+  - astro_sign: 6
+    date: "23 septembre \u2013 22 octobre"
+    element: Air
+    planet: "V\xE9nus"
+    description: " Sous la gr\xE2ce de V\xE9nus, la Balance recherche l\u2019harmonie
+      dans toutes ses relations. C\u2019est un signe de mesure, de dialogue et d\u2019esth\xE9tique.
+      Elle d\xE9teste le conflit et cherche \xE0 unir plut\xF4t qu\u2019\xE0 s\xE9parer.
+      Son charme vient de sa capacit\xE9 \xE0 \xE9couter et \xE0 comprendre les deux
+      c\xF4t\xE9s d\u2019une situation."
+  - astro_sign: 7
+    date: "23 octobre \u2013 21 novembre"
+    element: Eau
+    planet: Pluton (et Mars)
+    description: "Sous la puissance de Pluton (et de Mars en astrologie traditionnelle),
+      le Scorpion explore ce qui est cach\xE9. C\u2019est un signe profond, intense
+      et passionn\xE9. Il vit les \xE9motions \xE0 fond et se r\xE9g\xE9n\xE8re apr\xE8s
+      chaque \xE9preuve. Sa plan\xE8te lui donne un esprit de transformation et une
+      grande force int\xE9rieure."
+  - astro_sign: 8
+    date: "22 novembre \u2013 21 d\xE9cembre"
+    element: Feu
+    planet: Jupiter
+    description: "Sous la bienveillance de Jupiter, le Sagittaire avance avec optimisme
+      et curiosit\xE9. Il cherche \xE0 comprendre le monde \xE0 travers le voyage,
+      la philosophie ou la foi. Sa plan\xE8te lui inspire la confiance, le sens de
+      la justice et le go\xFBt de l\u2019aventure intellectuelle ou spirituelle."
+  - astro_sign: 9
+    date: "22 novembre \u2013 21 d\xE9cembre"
+    element: Terre
+    planet: Saturne
+    description: "Sous la garde de Saturne, le Capricorne avance avec patience et
+      rigueur. Il gravit les sommets pierre apr\xE8s pierre, cherchant la sagesse
+      au-del\xE0 du temps. Sa plan\xE8te lui enseigne la pers\xE9v\xE9rance, la responsabilit\xE9
+      et la ma\xEEtrise de soi, faisant de lui un b\xE2tisseur de mondes durables
+      et de valeurs solides."
