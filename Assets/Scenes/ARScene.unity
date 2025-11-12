@@ -232,7 +232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6889176730438312969, guid: 50bfc9eba48da6f4f98d15b8c19e6e32, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8112802995528592926, guid: 50bfc9eba48da6f4f98d15b8c19e6e32, type: 3}
       propertyPath: gearCenterUI
@@ -241,6 +241,10 @@ PrefabInstance:
     - target: {fileID: 8137430930509847349, guid: 50bfc9eba48da6f4f98d15b8c19e6e32, type: 3}
       propertyPath: m_Name
       value: REPAIR
+      objectReference: {fileID: 0}
+    - target: {fileID: 8137430930509847349, guid: 50bfc9eba48da6f4f98d15b8c19e6e32, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
