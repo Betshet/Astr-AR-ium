@@ -37,3 +37,33 @@ MonoBehaviour:
     m_SpecifySize: 1
     m_Name: Astrarium_backdropCUT
     m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5739054820970406324
+      m_GuidHigh: 6430853989948827059
+    m_SerializedTextureGuid:
+      m_GuidLow: 13471572994296558957
+      m_GuidHigh: 14060201694276812072
+    m_Size: {x: 0.355, y: 0.35572985}
+    m_SpecifySize: 1
+    m_Name: SoleilAstra
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5547448600556045989
+      m_GuidHigh: 5164964894524338831
+    m_SerializedTextureGuid:
+      m_GuidLow: 15349560739263206017
+      m_GuidHigh: 17522126208717243208
+    m_Size: {x: 0.355, y: 0.36358753}
+    m_SpecifySize: 1
+    m_Name: VenusAstra
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4844312300317457631
+      m_GuidHigh: 13165644860900314523
+    m_SerializedTextureGuid:
+      m_GuidLow: 7013264266807100414
+      m_GuidHigh: 13675955867510700059
+    m_Size: {x: 0.355, y: 0.36759734}
+    m_SpecifySize: 1
+    m_Name: MarsAstra
+    m_Texture: {fileID: 0}

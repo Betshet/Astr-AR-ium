@@ -12,11 +12,10 @@ public class MiniGearCountdown : MonoBehaviour
     public GearRepairSystem repairSystem; // référence au script
 
     private float timer = 0f;
-    private bool active = true;
+    private bool active = false;
 
     void Start()
     {
-        ResetFicelle();
     }
 
     void Update()
@@ -55,7 +54,11 @@ public class MiniGearCountdown : MonoBehaviour
         {
             active = false;
             if (repairSystem != null)
+            {
+                systemToActivate.SetActive(true);
+                repairSystem.mechanismCamera.SetActive(true);
                 repairSystem.ActivateMechanism();
+            }
         }
     }
 

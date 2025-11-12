@@ -390,6 +390,7 @@ MonoBehaviour:
   dateManager: {fileID: 1162852084}
   trackedImageManager: {fileID: 2512387470422636670}
   anchorManager: {fileID: 2512387470422636671}
+  imagePrefabPairs: []
   zero: {x: 0, y: 0, z: 0}
   zeroOffset: {x: 0, y: 0, z: 0}
   PlanetsDeployed: 0
@@ -1389,18 +1390,6 @@ PrefabInstance:
     - target: {fileID: 3936009310433435099, guid: 5b3042af04d52d1418f87fe1e38cded9, type: 3}
       propertyPath: m_Name
       value: StarDome
-      objectReference: {fileID: 0}
-    - target: {fileID: 4455277404376762209, guid: 5b3042af04d52d1418f87fe1e38cded9, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4455277404376762209, guid: 5b3042af04d52d1418f87fe1e38cded9, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4455277404376762209, guid: 5b3042af04d52d1418f87fe1e38cded9, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4455277404376762209, guid: 5b3042af04d52d1418f87fe1e38cded9, type: 3}
       propertyPath: m_LocalPosition.x

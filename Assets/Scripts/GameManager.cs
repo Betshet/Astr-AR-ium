@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     DateManager dateManager;
 
     [SerializeField]
+    public GameObject DateCanvas;
+
+    [SerializeField]
     ARTrackedImageManager trackedImageManager;
 
     public ARAnchorManager anchorManager;
@@ -64,35 +67,44 @@ public class GameManager : MonoBehaviour
         zero = new Vector3(0,0,0);
     }
 
+    void EnableDateCanvas()
+    {
+        DateCanvas.SetActive(true);
+    }
+
     public void MoveAllPlanetsToDate(string TargetDateString)
     {
         if (Planets.Count == 0)
         {
             UnityEngine.Object[] list = GameObject.FindObjectsOfType(typeof(MovingObject));
-            foreach (var planet in list)
+            foreach (MovingObject planet in list)
             {
                 Planets.Add((MovingObject)planet);
                 if (((MovingObject)planet).astralBody == Body.Earth)
                 {
                     zero = ((MovingObject)planet).transform.position + zeroOffset;
-                }
+                }                
             }
         }
 
         DateTime TargetDate = System.DateTime.Parse(TargetDateString);
         if (PlanetsDeployed)
         {
+            DateCanvas.SetActive(false);
             foreach (MovingObject planet in Planets)
             {
                 List<Vector3> positions = dateManager.GetVectorsBetweenDates(currentDate, TargetDate, planet.astralBody);
-                StartCoroutine(planet.MoveObjectIterate(positions, 2));
+                planet.MoveObjectIterate(positions, 10);
                 //TODO : time in seconds changes depending on number of items in positions array
             }
+            Invoke("EnableDateCanvas", 10);
         }
         else
         {
+            GetComponent<MiniGearCountdown>().ResetFicelle();
             foreach (MovingObject planet in Planets)
             {
+                planet.RegisterStartingPosition();
                 Vector3 position = dateManager.GetVectorFromUserDate(TargetDateString, planet.astralBody);
                 StartCoroutine(planet.MoveObjectTo(position,2));
                 //TODO : parabole
@@ -110,7 +122,6 @@ public class GameManager : MonoBehaviour
     {
         foreach (ARTrackedImage trackedImage in eventArgs.added)
         {
-            
         }
 
         foreach (var updatedImage in eventArgs.updated)
@@ -118,15 +129,22 @@ public class GameManager : MonoBehaviour
             if(!PlanetsSpawned)
             {
                 Pose pose = new(updatedImage.transform.position, Quaternion.identity);
-                ARAnchor anchor = anchorManager.AddAnchor(pose);
                 var instance = Instantiate(SolarSystemPrefab, updatedImage.transform.position, Quaternion.identity);
-                instance.transform.parent = anchor.transform;
                 PlanetsSpawned = true;
+                DateCanvas.SetActive(true);
             }
         }
 
         foreach (var removedImage in eventArgs.removed)
         {
+        }
+    }
+
+    public void ResetPosition()
+    {
+        foreach(MovingObject planet in Planets)
+        {
+            planet.ResetPosition();
         }
     }
 }

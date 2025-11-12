@@ -18,13 +18,25 @@ public class DateManager : MonoBehaviour
         switch (astralBody)
         {
             case Body.Jupiter:
-                av = av / 2;
+                av = av / 5d;
                 break;
             case Body.Saturn:
-                av = av / 3;
+                av = av / 7d;
+                break;
+            case Body.Mars:
+                av = av / 2.5d;
                 break;
             case Body.Moon:
-                av = av / .01f;
+                av = av / .04d;
+                break;
+            case Body.Sun:
+                av = av / 3.5d;
+                break;
+            case Body.Mercury:
+                av = av / 3.5d;
+                break;
+            case Body.Venus:
+                av = av / 2d;
                 break;
             case Body.Earth:
                 break;
@@ -40,19 +52,44 @@ public class DateManager : MonoBehaviour
 
     public List<Vector3> GetVectorsBetweenDates(DateTime startDate, DateTime endDate, Body astralBody)
     {
+        //List of vectors corresponding to the position of the given celestial body over the given period of time
         List<Vector3> result = new List<Vector3>();
 
         if (startDate == endDate) return result;
 
+        //We can go forwards or backwards in time
         bool forward = startDate < endDate;
+
         DateTime current = startDate;
 
-        while (current != endDate)
-        {
-            result.Add(ConvertDateToVector(current, astralBody));
+        //The steps between each selected day
+        //By default, we select every day
+        int daysSpacing = 1;
 
-            if (forward) current = current.AddDays(1);
-            else current = current.AddDays(-1);
+        double totalDays = Math.Abs((endDate - startDate).TotalDays);
+
+        //If the two dates are more than 200 days apart, we adjust the steps between each day
+        if (totalDays > 200d)
+        {
+            daysSpacing = (int)(totalDays / 200d);
+        }
+
+        print("totaldays : " + totalDays);
+        print("daysSpacing " + daysSpacing);
+        print("forward " + forward);
+
+        bool continueLoop = true;
+        while (continueLoop)
+        {
+            //Convert the date of the current day to a vector in space
+            result.Add(ConvertDateToVector(current, astralBody) + GameManager.Instance.zero);
+
+            //If going fowards, we advance the current time, else we go backwards
+            if (forward) current = current.AddDays(daysSpacing);
+            else current = current.AddDays(-daysSpacing);
+
+            //If we have gone beyond the end date, stop the loop
+            continueLoop = forward ? current < endDate : current > endDate;
         }
 
         return result;

@@ -18,12 +18,42 @@ MonoBehaviour:
     m_Storage: []
   m_Images:
   - m_SerializedGuid:
-      m_GuidLow: 4818210695144351010
-      m_GuidHigh: 3328907007811197060
+      m_GuidLow: 5608976304433594613
+      m_GuidHigh: 8506728448973719712
     m_SerializedTextureGuid:
-      m_GuidLow: 802844456334052849
-      m_GuidHigh: 5751882766388356314
-    m_Size: {x: 0.08, y: 0.07923879}
+      m_GuidLow: 13471572994296558957
+      m_GuidHigh: 14060201694276812072
+    m_Size: {x: 0.355, y: 0.35572985}
     m_SpecifySize: 1
-    m_Name: BaseMarker
+    m_Name: SoleilAstra
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5557110429175229906
+      m_GuidHigh: 9627771767039839142
+    m_SerializedTextureGuid:
+      m_GuidLow: 15349560739263206017
+      m_GuidHigh: 17522126208717243208
+    m_Size: {x: 0.355, y: 0.36358753}
+    m_SpecifySize: 1
+    m_Name: VenusAstra
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4959496162894140870
+      m_GuidHigh: 17099242854175610012
+    m_SerializedTextureGuid:
+      m_GuidLow: 7013264266807100414
+      m_GuidHigh: 13675955867510700059
+    m_Size: {x: 0.355, y: 0.36759734}
+    m_SpecifySize: 1
+    m_Name: MarsAstra
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4692496736065544208
+      m_GuidHigh: 11337059034295233171
+    m_SerializedTextureGuid:
+      m_GuidLow: 253401930344925117
+      m_GuidHigh: 13546787700859487562
+    m_Size: {x: 2, y: 1.2151239}
+    m_SpecifySize: 1
+    m_Name: Astrarium_backdropCUT
     m_Texture: {fileID: 0}

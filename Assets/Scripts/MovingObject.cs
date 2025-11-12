@@ -3,29 +3,31 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using CosineKitty;
 using UnityEngine;
+using DG.Tweening;
 
 public class MovingObject : MonoBehaviour
 {
     [SerializeField]
     public Body astralBody;
 
+    public Vector3 StartingPosition;
+
     // Start is called before the first frame update
     void Start()
     {
+    }
 
+    public void RegisterStartingPosition()
+    {
+        StartingPosition = transform.position - GameManager.Instance.zero;
     }
 
 
-    public IEnumerator MoveObjectIterate(List<Vector3> posList, float totalTime)
+    public void MoveObjectIterate(List<Vector3> posList, float totalTime)
     {
-        float timeForEachMove = (totalTime/posList.Count) * 100 * Time.deltaTime;
-        print(timeForEachMove);
-
-        foreach (var pos in posList)
-        {
-            SetPosition(pos + GameManager.Instance.zero);
-            yield return new WaitForSeconds(timeForEachMove);
-        }
+        float timeForEachMove = (totalTime/posList.Count);
+        print("Number of pos in vector list " + posList.Count);
+        transform.DOPath(posList.ToArray(), totalTime);
     }
 
     public IEnumerator MoveObjectTo(Vector3 end, float time) //in seconds
@@ -44,5 +46,10 @@ public class MovingObject : MonoBehaviour
     public void SetPosition(Vector3 position)
     {
         transform.position = position;
+    }
+
+    public void ResetPosition()
+    {
+        StartCoroutine(MoveObjectTo(StartingPosition, 2));
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GearRepairSystem : MonoBehaviour
@@ -35,6 +36,16 @@ public class GearRepairSystem : MonoBehaviour
 
     public void ActivateMechanism()
     {
+        GameManager.Instance.DateCanvas.SetActive(false);
+        GameManager.Instance.ResetPosition();
+
+        StartCoroutine(ActivateMechanism_Delay());
+    }
+
+    IEnumerator ActivateMechanism_Delay()
+    {
+        yield return new WaitForSeconds(2);
+
         Debug.Log("Mécanisme activé !");
         isActive = true;
         currentRopeScale = maxRopeScale;
@@ -47,8 +58,8 @@ public class GearRepairSystem : MonoBehaviour
 
     void Update()
     {
-        if (isActive)
-            HandleTouchInput();
+        //if (isActive)
+          //  HandleTouchInput();
     }
 
     void HandleTouchInput()
@@ -110,23 +121,28 @@ public class GearRepairSystem : MonoBehaviour
         isActive = false;
         repairCanvas.SetActive(false);
         mechanismCamera.SetActive(false);
-
-        // Après avoir désactivé le mécanisme
-        MiniGearCountdown miniTimer = FindObjectOfType<MiniGearCountdown>();
-        if (miniTimer != null)
-        {
-            miniTimer.ResetFicelle();
-        }
+        
+        
+        GameManager gm = GameManager.Instance;
+        gm.GetComponent<MiniGearCountdown>().ResetFicelle();
+        gm.DateCanvas.SetActive(true);
+        gm.PlanetsDeployed = false;
+        gm.MoveAllPlanetsToDate(gm.currentDate.ToString());
     }
 
     public void RotateGear(float rotation)
     {
+        // Tourne la roue sur son axe
         gear.Rotate(Vector3.right, rotation, Space.Self);
 
-        float scaleReduction = (Mathf.Abs(rotation) / 360f) * ropeRetractionPerRotation;
-        currentRopeScale = Mathf.Max(minRopeScale, currentRopeScale - scaleReduction);
+        // Détecte le sens de rotation (horaire ou anti-horaire)
+        float ropeChange = (rotation / 360f) * ropeRetractionPerRotation;
+
+        // Si rotation > 0 : remonte (réduction de la longueur)
+        // Si rotation < 0 : descend (augmentation de la longueur)
+        currentRopeScale = Mathf.Clamp(currentRopeScale - ropeChange, minRopeScale, maxRopeScale);
+
         UpdateRope();
-        Debug.Log("currentRopeScale: " + currentRopeScale);
 
         if (currentRopeScale <= minRopeScale)
             CompleteRepair();
