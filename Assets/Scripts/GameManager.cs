@@ -155,6 +155,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetPosition()
     {
+        SoundManager.Instance.Play("system_break");
         foreach(MovingObject planet in Planets)
         {
             planet.ResetPosition();
