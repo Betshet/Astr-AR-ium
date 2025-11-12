@@ -190,6 +190,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 155702303836291114, guid: 50bfc9eba48da6f4f98d15b8c19e6e32, type: 3}
+      propertyPath: ropeRetractionPerRotation
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1583555104539896984, guid: 50bfc9eba48da6f4f98d15b8c19e6e32, type: 3}
       propertyPath: m_LocalPosition.x
       value: 465.75
