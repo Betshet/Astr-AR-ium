@@ -19,7 +19,10 @@ EditorBuildSettings:
     guid: a2d4dbe20e8b3d0458125c140fd0a110
   - enabled: 0
     path: Assets/Scenes/ARSceneMathis.unity
-    guid: d69b9537b68c326479de87fd7aeb0f28
+    guid: bd044e8bf73ae1247b995393c3a00dbe
+  - enabled: 1
+    path: Assets/Scenes/ARScene Mathis.unity
+    guid: 9ba3437e289c68c4cb0114d541cc4613
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 6ee72d15cf39dd748a13eac57397b9af, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 0465d33c6aee55f44b0237db8b0e0259, type: 2}
