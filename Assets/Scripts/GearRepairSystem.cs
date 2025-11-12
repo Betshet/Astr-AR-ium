@@ -58,8 +58,8 @@ public class GearRepairSystem : MonoBehaviour
 
     void Update()
     {
-        if (isActive)
-            HandleTouchInput();
+        //if (isActive)
+          //  HandleTouchInput();
     }
 
     void HandleTouchInput()
@@ -132,12 +132,17 @@ public class GearRepairSystem : MonoBehaviour
 
     public void RotateGear(float rotation)
     {
+        // Tourne la roue sur son axe
         gear.Rotate(Vector3.right, rotation, Space.Self);
 
-        float scaleReduction = (Mathf.Abs(rotation) / 360f) * ropeRetractionPerRotation;
-        currentRopeScale = Mathf.Max(minRopeScale, currentRopeScale - scaleReduction);
+        // Détecte le sens de rotation (horaire ou anti-horaire)
+        float ropeChange = (rotation / 360f) * ropeRetractionPerRotation;
+
+        // Si rotation > 0 : remonte (réduction de la longueur)
+        // Si rotation < 0 : descend (augmentation de la longueur)
+        currentRopeScale = Mathf.Clamp(currentRopeScale - ropeChange, minRopeScale, maxRopeScale);
+
         UpdateRope();
-        Debug.Log("currentRopeScale: " + currentRopeScale);
 
         if (currentRopeScale <= minRopeScale)
             CompleteRepair();
