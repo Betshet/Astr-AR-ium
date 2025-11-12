@@ -19,8 +19,8 @@ EditorBuildSettings:
     guid: a2d4dbe20e8b3d0458125c140fd0a110
   - enabled: 0
     path: Assets/Scenes/ARSceneMathis.unity
-    guid: bd044e8bf73ae1247b995393c3a00dbe
-  - enabled: 1
+    guid: d69b9537b68c326479de87fd7aeb0f28
+  - enabled: 0
     path: Assets/Scenes/ARScene Mathis.unity
     guid: 9ba3437e289c68c4cb0114d541cc4613
   m_configObjects:

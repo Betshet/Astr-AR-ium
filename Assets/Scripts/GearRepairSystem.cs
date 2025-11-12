@@ -27,6 +27,8 @@ public class GearRepairSystem : MonoBehaviour
     private Vector2 lastTouchPosition;
     private bool isActive = false;
 
+    private bool waitingForMechanism = false;
+
     void Start()
     {
         currentRopeScale = maxRopeScale;
@@ -34,9 +36,15 @@ public class GearRepairSystem : MonoBehaviour
         //mechanismCamera.SetActive(false);
     }
 
+    public void WaitActivateMechanism()
+    {
+        waitingForMechanism = true;
+    }
+
     public void ActivateMechanism()
     {
         GameManager.Instance.DateCanvas.SetActive(false);
+        GameManager.Instance.MiniGearIcon.SetActive(false);
         GameManager.Instance.ResetPosition();
 
         StartCoroutine(ActivateMechanism_Delay());
@@ -60,6 +68,14 @@ public class GearRepairSystem : MonoBehaviour
     {
         //if (isActive)
           //  HandleTouchInput();
+        if(waitingForMechanism)
+        {
+            if(!GameManager.Instance.PlanetsMoving)
+            {
+                waitingForMechanism = false;
+                ActivateMechanism();
+            }
+        }
     }
 
     void HandleTouchInput()
@@ -124,6 +140,7 @@ public class GearRepairSystem : MonoBehaviour
         
         
         GameManager gm = GameManager.Instance;
+        gm.MiniGearIcon.SetActive(true);
         gm.GetComponent<MiniGearCountdown>().ResetFicelle();
         gm.DateCanvas.SetActive(true);
         gm.PlanetsDeployed = false;

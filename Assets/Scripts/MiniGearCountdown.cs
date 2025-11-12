@@ -57,7 +57,7 @@ public class MiniGearCountdown : MonoBehaviour
             {
                 systemToActivate.SetActive(true);
                 repairSystem.mechanismCamera.SetActive(true);
-                repairSystem.ActivateMechanism();
+                repairSystem.WaitActivateMechanism();
             }
         }
     }

@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     public GameObject DateCanvas;
 
     [SerializeField]
+    public GameObject MiniGearIcon;
+
+    [SerializeField]
     ARTrackedImageManager trackedImageManager;
 
     public ARAnchorManager anchorManager;
@@ -37,6 +40,8 @@ public class GameManager : MonoBehaviour
     public bool PlanetsDeployed = false;
     bool PlanetsSpawned = false;
     public DateTime currentDate = DateTime.Now;
+
+    public bool PlanetsMoving = false;
 
     private static GameManager _instance;
 
@@ -69,6 +74,7 @@ public class GameManager : MonoBehaviour
 
     void EnableDateCanvas()
     {
+        PlanetsMoving = false;
         DateCanvas.SetActive(true);
     }
 
@@ -87,10 +93,14 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        PlanetsMoving = true;
+        DateCanvas.SetActive(false);
+
         DateTime TargetDate = System.DateTime.Parse(TargetDateString);
+
         if (PlanetsDeployed)
         {
-            DateCanvas.SetActive(false);
+            
             foreach (MovingObject planet in Planets)
             {
                 List<Vector3> positions = dateManager.GetVectorsBetweenDates(currentDate, TargetDate, planet.astralBody);
@@ -110,6 +120,7 @@ public class GameManager : MonoBehaviour
                 //TODO : parabole
             }
             PlanetsDeployed = true;
+            Invoke("EnableDateCanvas", 2);
         }
         currentDate = TargetDate;
     }
@@ -128,10 +139,12 @@ public class GameManager : MonoBehaviour
         {
             if(!PlanetsSpawned)
             {
-                Pose pose = new(updatedImage.transform.position, Quaternion.identity);
-                var instance = Instantiate(SolarSystemPrefab, updatedImage.transform.position, Quaternion.identity);
+                Vector3 offset = new Vector3(-.3f, -.3f, -.3f);
+
+                var instance = Instantiate(SolarSystemPrefab, updatedImage.transform.position + offset, Quaternion.identity);
                 PlanetsSpawned = true;
                 DateCanvas.SetActive(true);
+                MiniGearIcon.SetActive(true);
             }
         }
 
