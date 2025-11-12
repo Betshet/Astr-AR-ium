@@ -535,11 +535,13 @@ MonoBehaviour:
   SolarSystemPrefab: {fileID: 250067134326836390, guid: 5ab8004202600f1488818456d790cb7d, type: 3}
   dateManager: {fileID: 1162852084}
   DateCanvas: {fileID: 1287937447}
+  MiniGearIcon: {fileID: 2004144529}
   trackedImageManager: {fileID: 2512387470422636670}
   anchorManager: {fileID: 2512387470422636671}
   zero: {x: 0, y: 0, z: 0}
   zeroOffset: {x: 0, y: 0, z: 0}
   PlanetsDeployed: 0
+  PlanetsMoving: 0
 --- !u!4 &890160047
 Transform:
   m_ObjectHideFlags: 0
@@ -1092,7 +1094,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2004144530
 RectTransform:
   m_ObjectHideFlags: 0
