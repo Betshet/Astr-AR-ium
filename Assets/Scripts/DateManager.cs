@@ -69,9 +69,9 @@ public class DateManager : MonoBehaviour
         double totalDays = Math.Abs((endDate - startDate).TotalDays);
 
         //If the two dates are more than 200 days apart, we adjust the steps between each day
-        if (totalDays > 200d)
+        if (totalDays > 600d)
         {
-            daysSpacing = (int)(totalDays / 200d);
+            daysSpacing = (int)(totalDays / 600d);
         }
 
         print("totaldays : " + totalDays);

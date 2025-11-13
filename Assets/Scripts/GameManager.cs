@@ -74,8 +74,12 @@ public class GameManager : MonoBehaviour
 
     void PlanetsFinishedMoving()
     {
+        SoundManager.Instance.Play("planets_stop");
+        SoundManager.Instance.Stop("gears_rotate_planets");
         PlanetsMoving = false;
         DateCanvas.SetActive(true);
+
+        GetComponent<UIManager>().DisplayAstrology(currentDate);
     }
 
     public void MoveAllPlanetsToDate(string TargetDateString)
@@ -92,11 +96,16 @@ public class GameManager : MonoBehaviour
                 }                
             }
         }
+        SoundManager.Instance.Play("gears_rotate_planets");
+        SoundManager.Instance.Play("planets_move");
 
         PlanetsMoving = true;
         DateCanvas.SetActive(false);
 
+        //Hide UIs
         DateTime TargetDate = System.DateTime.Parse(TargetDateString);
+        GetComponent<UIManager>().HideAstrology();
+
 
         if (PlanetsDeployed)
         {
@@ -154,6 +163,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetPosition()
     {
+        SoundManager.Instance.Play("planets_reset");
         SoundManager.Instance.Play("system_break");
         foreach(MovingObject planet in Planets)
         {

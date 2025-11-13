@@ -40,7 +40,7 @@ MonoBehaviour:
       lui conf\xE8re une grande agilit\xE9 d\u2019esprit et une parole toujours en
       \xE9veil."
   - astro_sign: 3
-    date: "20 avril \u2013 20 mai"
+    date: "21 juin \u2013 22 juillet"
     element: Terre
     planet: "V\xE9nus"
     description: "Guid\xE9 par V\xE9nus, le Taureau recherche la stabilit\xE9, la
@@ -91,7 +91,7 @@ MonoBehaviour:
       la philosophie ou la foi. Sa plan\xE8te lui inspire la confiance, le sens de
       la justice et le go\xFBt de l\u2019aventure intellectuelle ou spirituelle."
   - astro_sign: 9
-    date: "22 novembre \u2013 21 d\xE9cembre"
+    date: "22 d\xE9cembre \u2013 21 janvier"
     element: Terre
     planet: Saturne
     description: "Sous la garde de Saturne, le Capricorne avance avec patience et
@@ -99,3 +99,20 @@ MonoBehaviour:
       au-del\xE0 du temps. Sa plan\xE8te lui enseigne la pers\xE9v\xE9rance, la responsabilit\xE9
       et la ma\xEEtrise de soi, faisant de lui un b\xE2tisseur de mondes durables
       et de valeurs solides."
+  - astro_sign: 11
+    date: "22 janvier - 21 f\xE9vrier"
+    element: Air
+    planet: Uranus
+    description: "Sous l\u2019impulsion d\u2019Uranus, le Verseau avance avec audace
+      et lucidit\xE9. Il explore de nouvelles id\xE9es avec une libert\xE9 naturelle.
+      Sa plan\xE8te lui inspire l\u2019ind\xE9pendance, la cr\xE9ativit\xE9 et l\u2019ouverture,
+      faisant de lui un porteur de visions neuves et d\u2019\xE9lans collectifs."
+  - astro_sign: 10
+    date: "22 f\xE9vrier - 20 mars"
+    element: Eau
+    planet: Neptune
+    description: "Sous la guidance de Neptune, les Poissons avancent avec sensibilit\xE9
+      et intuition. Ils naviguent entre r\xE9el et imaginaire avec une grande finesse.
+      Leur plan\xE8te leur enseigne la compassion, l\u2019imagination et le l\xE2cher-prise,
+      faisant d\u2019eux des \xEAtres inspirants, capables d\u2019apporter douceur
+      et compr\xE9hension."
