@@ -12,8 +12,9 @@ Balance,
 Scorpion,
 Sagittaire,
 Capricorne,
-Poisson,
-Verseau
+Verseau,
+Poisson
+
     
 }
 
