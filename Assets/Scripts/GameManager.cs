@@ -109,7 +109,6 @@ public class GameManager : MonoBehaviour
 
         if (PlanetsDeployed)
         {
-            
             foreach (MovingObject planet in Planets)
             {
                 List<Vector3> positions = dateManager.GetVectorsBetweenDates(currentDate, TargetDate, planet.astralBody);
@@ -169,5 +168,24 @@ public class GameManager : MonoBehaviour
         {
             planet.ResetPosition();
         }
+    }
+
+    public void SetupRepairMechanism()
+    {
+        print("setup repair");
+        GetComponent<UIManager>().HideAstrology();
+        DateCanvas.SetActive(false);
+        MiniGearIcon.SetActive(false);
+        ResetPosition();
+    }
+
+    public void ResetAfterRepair()
+    {
+        print("reset after repair");
+        MiniGearIcon.SetActive(true);
+        GetComponent<MiniGearCountdown>().ResetFicelle();
+        DateCanvas.SetActive(true);
+        PlanetsDeployed = false;
+        MoveAllPlanetsToDate(currentDate.ToString());
     }
 }

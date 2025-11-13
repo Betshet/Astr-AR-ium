@@ -43,23 +43,17 @@ public class GearRepairSystem : MonoBehaviour
 
     public void ActivateMechanism()
     {
-        GameManager.Instance.DateCanvas.SetActive(false);
-        GameManager.Instance.MiniGearIcon.SetActive(false);
-        GameManager.Instance.ResetPosition();
-
-        StartCoroutine(ActivateMechanism_Delay());
+        GameManager.Instance.SetupRepairMechanism();
+        Invoke("ActivateMechanism_Delay",2);
     }
 
-    IEnumerator ActivateMechanism_Delay()
+    void ActivateMechanism_Delay()
     {
-        yield return new WaitForSeconds(2);
-
         Debug.Log("Mécanisme activé !");
         isActive = true;
         currentRopeScale = maxRopeScale;
 
         repairCanvas.SetActive(true);
-        mechanismCamera.SetActive(true);
 
         UpdateRope();
     }
@@ -70,6 +64,7 @@ public class GearRepairSystem : MonoBehaviour
           //  HandleTouchInput();
         if(waitingForMechanism)
         {
+            print(GameManager.Instance.PlanetsMoving);
             if(!GameManager.Instance.PlanetsMoving)
             {
                 waitingForMechanism = false;
@@ -138,15 +133,8 @@ public class GearRepairSystem : MonoBehaviour
         Debug.Log("Réparation terminée !");
         isActive = false;
         repairCanvas.SetActive(false);
-        mechanismCamera.SetActive(false);
         
-        
-        GameManager gm = GameManager.Instance;
-        gm.MiniGearIcon.SetActive(true);
-        gm.GetComponent<MiniGearCountdown>().ResetFicelle();
-        gm.DateCanvas.SetActive(true);
-        gm.PlanetsDeployed = false;
-        gm.MoveAllPlanetsToDate(gm.currentDate.ToString());
+        GameManager.Instance.ResetAfterRepair();
     }
 
     public void RotateGear(float rotation)

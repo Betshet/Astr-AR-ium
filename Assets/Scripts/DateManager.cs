@@ -74,10 +74,6 @@ public class DateManager : MonoBehaviour
             daysSpacing = (int)(totalDays / 600d);
         }
 
-        print("totaldays : " + totalDays);
-        print("daysSpacing " + daysSpacing);
-        print("forward " + forward);
-
         bool continueLoop = true;
         while (continueLoop)
         {
