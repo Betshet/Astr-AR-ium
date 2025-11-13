@@ -68,11 +68,13 @@ public class UIManager : MonoBehaviour
     {
         if (AstroCard.activeSelf)
         {
+            SoundManager.Instance.Play("clic_out");
             print("heyyy");
             AstroCard.SetActive(false);
         }
         else
         {
+            SoundManager.Instance.Play("clic_in");
             AstroCard.SetActive(true);
             UpdateAstroCard();
         }
