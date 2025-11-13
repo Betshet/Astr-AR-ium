@@ -23,6 +23,7 @@ public class DateInputValidator : MonoBehaviour
         dayInput.onEndEdit.AddListener(FormatDay);
         monthInput.onEndEdit.AddListener(FormatMonth);
         yearInput.onEndEdit.AddListener(FormatYear);
+
     }
 
     void ValidateDay(string input)
