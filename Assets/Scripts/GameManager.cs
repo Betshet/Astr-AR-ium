@@ -78,6 +78,8 @@ public class GameManager : MonoBehaviour
         SoundManager.Instance.Stop("gears_rotate_planets");
         PlanetsMoving = false;
         DateCanvas.SetActive(true);
+
+        GetComponent<UIManager>().DisplayAstrology(currentDate);
     }
 
     public void MoveAllPlanetsToDate(string TargetDateString)
@@ -100,7 +102,10 @@ public class GameManager : MonoBehaviour
         PlanetsMoving = true;
         DateCanvas.SetActive(false);
 
+        //Hide UIs
         DateTime TargetDate = System.DateTime.Parse(TargetDateString);
+        GetComponent<UIManager>().HideAstrology();
+
 
         if (PlanetsDeployed)
         {
