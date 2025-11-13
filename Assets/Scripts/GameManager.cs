@@ -74,6 +74,8 @@ public class GameManager : MonoBehaviour
 
     void PlanetsFinishedMoving()
     {
+        SoundManager.Instance.Play("planets_stop");
+        SoundManager.Instance.Stop("gears_rotate_planets");
         PlanetsMoving = false;
         DateCanvas.SetActive(true);
     }
@@ -92,6 +94,8 @@ public class GameManager : MonoBehaviour
                 }                
             }
         }
+        SoundManager.Instance.Play("gears_rotate_planets");
+        SoundManager.Instance.Play("planets_move");
 
         PlanetsMoving = true;
         DateCanvas.SetActive(false);
@@ -154,6 +158,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetPosition()
     {
+        SoundManager.Instance.Play("planets_reset");
         SoundManager.Instance.Play("system_break");
         foreach(MovingObject planet in Planets)
         {
