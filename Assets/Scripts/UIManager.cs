@@ -69,7 +69,6 @@ public class UIManager : MonoBehaviour
         if (AstroCard.activeSelf)
         {
             SoundManager.Instance.Play("clic_out");
-            print("heyyy");
             AstroCard.SetActive(false);
         }
         else
@@ -78,6 +77,11 @@ public class UIManager : MonoBehaviour
             AstroCard.SetActive(true);
             UpdateAstroCard();
         }
+    }
+
+    public void OnClick_CloseAstroCard()
+    {
+        AstroCard.SetActive(false);
     }
 
     void UpdateZodiacSignButton(DateTime date)
