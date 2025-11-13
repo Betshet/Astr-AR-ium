@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
         zero = new Vector3(0,0,0);
     }
 
-    void EnableDateCanvas()
+    void PlanetsFinishedMoving()
     {
         PlanetsMoving = false;
         DateCanvas.SetActive(true);
@@ -105,9 +105,8 @@ public class GameManager : MonoBehaviour
             {
                 List<Vector3> positions = dateManager.GetVectorsBetweenDates(currentDate, TargetDate, planet.astralBody);
                 planet.MoveObjectIterate(positions, 10);
-                //TODO : time in seconds changes depending on number of items in positions array
             }
-            Invoke("EnableDateCanvas", 10);
+            Invoke("PlanetsFinishedMoving", 10);
         }
         else
         {
@@ -120,7 +119,7 @@ public class GameManager : MonoBehaviour
                 //TODO : parabole
             }
             PlanetsDeployed = true;
-            Invoke("EnableDateCanvas", 2);
+            Invoke("PlanetsFinishedMoving", 2);
         }
         currentDate = TargetDate;
     }
