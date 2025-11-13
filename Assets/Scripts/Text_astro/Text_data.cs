@@ -11,7 +11,9 @@ Vierge,
 Balance, 
 Scorpion,
 Sagittaire,
-Capricorne
+Capricorne,
+Poisson,
+Verseau
     
 }
 
