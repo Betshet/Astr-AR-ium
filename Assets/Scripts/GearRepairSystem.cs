@@ -133,6 +133,8 @@ public class GearRepairSystem : MonoBehaviour
 
     void CompleteRepair()
     {
+        SoundManager.Instance.Stop("gear_reload");
+        SoundManager.Instance.Play("gear_reload_end");
         Debug.Log("Réparation terminée !");
         isActive = false;
         repairCanvas.SetActive(false);
@@ -163,5 +165,10 @@ public class GearRepairSystem : MonoBehaviour
 
         if (currentRopeScale <= minRopeScale)
             CompleteRepair();
+    }
+
+    public bool IsFullyRepaired()
+    {
+        return currentRopeScale <= minRopeScale;
     }
 }
