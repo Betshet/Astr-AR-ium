@@ -196,7 +196,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552051411610259372}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -4.82}
   m_LocalScale: {x: 62.500008, y: 62.5, z: 62.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -205,7 +205,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 2.16}
+  m_AnchoredPosition: {x: 0, y: 2.1600008}
   m_SizeDelta: {x: 2, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6857216130719688923
@@ -1128,7 +1128,7 @@ TrailRenderer:
     textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 0.001
+  m_MinVertexDistance: 0.0001
   m_MaskInteraction: 0
   m_Autodestruct: 0
   m_Emitting: 1

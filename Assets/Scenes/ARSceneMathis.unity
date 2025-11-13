@@ -313,11 +313,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51271452743805295, guid: 2a9b8857d5044d040a3e3ee23953613e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 51271452743805295, guid: 2a9b8857d5044d040a3e3ee23953613e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 51271452743805295, guid: 2a9b8857d5044d040a3e3ee23953613e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.58
+      value: -4.4
       objectReference: {fileID: 0}
     - target: {fileID: 317559239073684291, guid: 2a9b8857d5044d040a3e3ee23953613e, type: 3}
       propertyPath: m_LocalScale.x
@@ -519,7 +523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6889176730438312969, guid: 50bfc9eba48da6f4f98d15b8c19e6e32, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8112802995528592926, guid: 50bfc9eba48da6f4f98d15b8c19e6e32, type: 3}
       propertyPath: gearCenterUI
