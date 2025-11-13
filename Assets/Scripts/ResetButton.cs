@@ -25,7 +25,7 @@ public class ResetButtonHandler : MonoBehaviour
 
         if (clickCount >= requiredClicks && (Time.time - firstClickTime) <= timeWindow)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else if ((Time.time - firstClickTime) > timeWindow)
         {

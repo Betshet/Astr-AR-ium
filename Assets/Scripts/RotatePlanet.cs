@@ -8,6 +8,6 @@ public class RotatePlanet : MonoBehaviour
     {
         transform.Rotate(Vector3.up * rSpeed * Time.deltaTime);
 
-        transform.LookAt(new Vector3(0, 0, 0));
+        //transform.LookAt(new Vector3(0, 0, 0));
     }
 }
