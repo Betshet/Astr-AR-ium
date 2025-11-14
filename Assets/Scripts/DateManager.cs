@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using CosineKitty;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DateManager : MonoBehaviour
@@ -82,7 +83,17 @@ public class DateManager : MonoBehaviour
 
             //If going fowards, we advance the current time, else we go backwards
             if (forward) current = current.AddDays(daysSpacing);
-            else current = current.AddDays(-daysSpacing);
+            else
+            {
+                try
+                {
+                    current = current.AddDays(-daysSpacing);
+                }
+                catch (Exception e)
+                {
+                    current = endDate;
+                }
+            }
 
             //If we have gone beyond the end date, stop the loop
             continueLoop = forward ? current < endDate : current > endDate;

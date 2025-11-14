@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
 
     public bool PlanetsMoving = false;
 
+    public GameObject SolarSystem;
+
     private static GameManager _instance;
 
     public static GameManager Instance
@@ -86,6 +88,7 @@ public class GameManager : MonoBehaviour
     {
         if (Planets.Count == 0)
         {
+            print("Setup zero");
             UnityEngine.Object[] list = GameObject.FindObjectsOfType(typeof(MovingObject));
             foreach (MovingObject planet in list)
             {
@@ -148,7 +151,7 @@ public class GameManager : MonoBehaviour
             {
                 Vector3 offset = new Vector3(-.3f, -.3f, -.3f);
 
-                var instance = Instantiate(SolarSystemPrefab, updatedImage.transform.position + offset, Quaternion.identity);
+                SolarSystem = Instantiate(SolarSystemPrefab, updatedImage.transform.position + offset, Quaternion.identity);
                 PlanetsSpawned = true;
                 DateCanvas.SetActive(true);
                 MiniGearIcon.SetActive(true);
@@ -187,5 +190,14 @@ public class GameManager : MonoBehaviour
         DateCanvas.SetActive(true);
         PlanetsDeployed = false;
         MoveAllPlanetsToDate(currentDate.ToString());
+    }
+
+    public void DestroySolarSystem()
+    {
+        if(SolarSystem)
+        {
+            Destroy(SolarSystem);
+            PlanetsSpawned = false;
+        }
     }
 }
