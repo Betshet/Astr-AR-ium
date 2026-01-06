@@ -57,3 +57,13 @@ MonoBehaviour:
     m_SpecifySize: 1
     m_Name: Astrarium_backdropCUT
     m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5340711901755696386
+      m_GuidHigh: 8667285640905536187
+    m_SerializedTextureGuid:
+      m_GuidLow: 802844456334052849
+      m_GuidHigh: 5751882766388356314
+    m_Size: {x: 0.085, y: 0.08419121}
+    m_SpecifySize: 1
+    m_Name: TagBase_page-0001
+    m_Texture: {fileID: 0}
