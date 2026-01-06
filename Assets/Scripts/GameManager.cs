@@ -150,7 +150,7 @@ public class GameManager : MonoBehaviour
             if(!PlanetsSpawned)
             {
                 Vector3 offset = new Vector3(-.3f, -.3f, -.3f);
-
+                print("spawning");
                 SolarSystem = Instantiate(SolarSystemPrefab, updatedImage.transform.position + offset, Quaternion.identity);
                 PlanetsSpawned = true;
                 DateCanvas.SetActive(true);
@@ -197,7 +197,15 @@ public class GameManager : MonoBehaviour
         if(SolarSystem)
         {
             Destroy(SolarSystem);
+            SolarSystem = null;
+
             PlanetsSpawned = false;
+
+            _instance = null;
+            Destroy(gameObject);
+
+            Destroy(trackedImageManager);
+            trackedImageManager = null;
         }
     }
 }
