@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
 
         //Hide UIs
         DateTime TargetDate = System.DateTime.Parse(TargetDateString);
-        GetComponent<UIManager>().HideAstrology();
+        //GetComponent<UIManager>().HideAstrology();
 
 
         if (PlanetsDeployed)
