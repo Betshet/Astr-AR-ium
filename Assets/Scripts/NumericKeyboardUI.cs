@@ -51,6 +51,13 @@ public class NumericKeyboardUI : MonoBehaviour
         currentInput.text = "";
     }
 
+    public void Backspace()
+    {
+        if (currentInput == null) return;
+
+        if (currentInput.text.Length > 0)
+            currentInput.text = currentInput.text.Substring(0, currentInput.text.Length - 1);
+    }
     // Appele quand on clique ailleurs
     public void CloseKeyboard()
     {
