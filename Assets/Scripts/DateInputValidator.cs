@@ -134,6 +134,13 @@ public class DateInputValidator : MonoBehaviour
 
     public void OnClick_ConfirmDate()
     {
+        string formattedDate = GetFormattedDate();
+
+        // Si un champ est vide ou invalide, on ne fait rien
+        if (string.IsNullOrEmpty(formattedDate))
+        {
+            return;
+        }
         GameManager.Instance.MoveAllPlanetsToDate(GetFormattedDate());
     }
 }
