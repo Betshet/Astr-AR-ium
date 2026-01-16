@@ -36,9 +36,17 @@ public class UIManager : MonoBehaviour
     List<Sprite> ZodiacSpriteListWhite;
 
     [SerializeField]
-    Tab_SignAstro ZodiacInfo;
+    Tab_SignAstro ZodiacInfoFrench;
+
+    [SerializeField]
+    Tab_SignAstro ZodiacInfoEnglish;
+
+    [SerializeField]
+    Tab_SignAstro ZodiacInfoSpanish;
 
 
+
+    Language currentLanguage = Language.French;
 
     // Start is called before the first frame update
     void Start()
@@ -94,9 +102,45 @@ public class UIManager : MonoBehaviour
     {
         DateTime date = GameManager.Instance.currentDate;
         Signastro sign = Astrology.GetSignFromDate(date);
+        Tab_SignAstro astroTexts;
+        switch (currentLanguage)
+        {
+            case Language.English:
+                astroTexts = ZodiacInfoEnglish;
+                break;
+            case Language.Spanish:
+                astroTexts = ZodiacInfoSpanish;
+                break;
+            case Language.French:
+            default:
+                astroTexts = ZodiacInfoFrench;
+                break;
 
+        }
         AstroCardSignImage.GetComponent<Image>().sprite = ZodiacSpriteListWhite[(int)sign];
-        AstroCardSignText.GetComponent<TextMeshProUGUI>().text = sign.ToString();
-        AstroCardMainText.GetComponent<TextMeshProUGUI>().text = ZodiacInfo.signastro[(int)sign].description;
+        AstroCardSignText.GetComponent<TextMeshProUGUI>().text = astroTexts.signastro[(int)sign].sign;
+        AstroCardMainText.GetComponent<TextMeshProUGUI>().text = astroTexts.signastro[(int)sign].description;
+
+        //GET TRANSLATION MANAGER
     }
+
+    public void onClick_ChangeLanguageFrench()
+    {
+        TranslationManager.Instance.TranslateAll(Language.French);
+        currentLanguage = Language.French;
+        UpdateAstroCard();
+    }
+    public void onClick_ChangeLanguage_English()
+    {
+        TranslationManager.Instance.TranslateAll(Language.English);
+        currentLanguage = Language.English;
+        UpdateAstroCard();
+    }
+    public void onClick_ChangeLanguage_Spanish()
+    {
+        TranslationManager.Instance.TranslateAll(Language.Spanish);
+        currentLanguage = Language.Spanish;
+        UpdateAstroCard();
+    }
+
 }

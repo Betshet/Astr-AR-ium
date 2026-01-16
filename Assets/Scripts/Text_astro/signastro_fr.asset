@@ -1,0 +1,134 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b306270d40927474785298f4cfb42e0f, type: 3}
+  m_Name: signastro_fr
+  m_EditorClassIdentifier: 
+  signastro:
+  - astro_sign: 0
+    sign: "B\xE9lier"
+    date: "21 mars \u2013 19 avril"
+    element: Feu
+    planet: Mars
+    description: "<b>Sous l\u2019impulsion de Mars, au XIV\u1D49 si\xE8cle, lorsque
+      l\u2019astrologie faisait partie des sciences du monde,</b> le B\xE9lier jaillit
+      comme une \xE9tincelle dans la nuit. Sa force est celle du commencement, brute
+      et sacr\xE9e. Il agit avant de douter, guid\xE9 par l\u2019instinct pur du
+      feu. Dans son sillage, tout s\u2019anime, tout s\u2019enflamme."
+  - astro_sign: 1
+    sign: Taureau
+    date: "20 avril \u2013 20 mai"
+    element: Terre
+    planet: "V\xE9nus"
+    description: "<b>Guid\xE9 par V\xE9nus, \xE0 l\u2019\xE9poque o\xF9 l\u2019astrologie
+      faisait partie des sciences du monde,</b> le Taureau recherche la stabilit\xE9,
+      la beaut\xE9 et l\u2019harmonie. Il construit avec constance et s\u2019attache
+      aux plaisirs simples et au monde concret, reflet de la douceur attribu\xE9e
+      \xE0 sa plan\xE8te ma\xEEtresse."
+  - astro_sign: 2
+    sign: "G\xE9meaux"
+    date: "21 mai \u2013 20 juin"
+    element: Air
+    planet: Mercure
+    description: "<b>Sous la gouverne de Mercure, dans un temps ancien o\xF9 le ciel
+      \xE9tait lu comme un langage,</b> le G\xE9meaux se distingue par sa vivacit\xE9
+      et sa curiosit\xE9. Il observe, apprend et transmet sans cesse, port\xE9 par
+      le mouvement. Mercure, messager des dieux, lui conf\xE8re une parole vive et
+      un esprit agile."
+  - astro_sign: 3
+    sign: Cancer
+    date: "21 juin \u2013 22 juillet"
+    element: Terre
+    planet: "V\xE9nus"
+    description: "<b>Guid\xE9 par V\xE9nus, dans l\u2019ordre ancien du monde m\xE9di\xE9val,</b>
+      le Cancer recherche la stabilit\xE9 et la beaut\xE9. Il construit lentement,
+      avec constance, et s\u2019attache aux plaisirs simples, \xE0 la nature et \xE0
+      la s\xE9curit\xE9 mat\xE9rielle. Son lien au concret refl\xE8te la douceur
+      et la sensualit\xE9 de sa plan\xE8te ma\xEEtresse. "
+  - astro_sign: 4
+    sign: Lion
+    date: "23 juillet \u2013 22 ao\xFBt"
+    element: Feu
+    planet: Soleil
+    description: "<b>R\xE9gi par le Soleil, \xE0 l\u2019\xE9poque du Moyen \xC2ge,</b>
+      le Lion rayonne naturellement. Il cr\xE9e, inspire et guide avec fiert\xE9
+      et g\xE9n\xE9rosit\xE9. Son astre lui conf\xE8re chaleur et autorit\xE9, ainsi
+      que la responsabilit\xE9 d\u2019illuminer sans dominer."
+  - astro_sign: 5
+    sign: Vierge
+    date: "23 ao\xFBt \u2013 22 septembre"
+    element: Terre
+    planet: Mercure
+    description: "<b>Sous l\u2019influence de Mercure, au temps des savoirs m\xE9di\xE9vaux,</b>
+      la Vierge analyse, trie et agit avec discernement. Mercure lui conf\xE8re pr\xE9cision,
+      sens de l\u2019utilit\xE9 et discernement, exerc\xE9s avec modestie."
+  - astro_sign: 6
+    sign: Balance
+    date: "23 septembre \u2013 22 octobre"
+    element: Air
+    planet: "V\xE9nus"
+    description: "<b>Sous la gr\xE2ce de V\xE9nus, \xE0 l\u2019\xE9poque m\xE9di\xE9vale,</b>
+      la Balance recherche l\u2019harmonie dans toutes ses relations. Signe de dialogue
+      et d\u2019esth\xE9tique, elle fuit le conflit et cherche \xE0 unir plut\xF4t
+      qu\u2019\xE0 s\xE9parer. Son charme na\xEEt de sa capacit\xE9 \xE0 \xE9couter
+      et \xE0 comprendre les deux c\xF4t\xE9s d\u2019une situation."
+  - astro_sign: 7
+    sign: Scorpion
+    date: "23 octobre \u2013 21 novembre"
+    element: Eau
+    planet: Pluton (et Mars)
+    description: "<b>Sous la puissance de Pluton (et de Mars dans l\u2019astrologie
+      m\xE9di\xE9vale)</b>, le Scorpion se tourne vers ce qui est cach\xE9 et invisible.
+      Signe profond et intense, il traverse les \xE9preuves avec passion et se r\xE9g\xE9n\xE8re
+      par la transformation. Ses astres lui conf\xE8rent une grande force int\xE9rieure
+      et le pouvoir de rena\xEEtre apr\xE8s chaque passage dans l\u2019ombre."
+  - astro_sign: 8
+    sign: Sagittaire
+    date: "22 novembre \u2013 21 d\xE9cembre"
+    element: Feu
+    planet: Jupiter
+    description: "<b>Sous la bienveillance de Jupiter, \xE0 l\u2019\xE9poque m\xE9di\xE9vale,</b>
+      le Sagittaire avance port\xE9 par l\u2019optimisme et la curiosit\xE9. Il cherche
+      \xE0 comprendre le monde par le voyage, l\u2019\xE9tude, la philosophie ou
+      la foi. Jupiter lui inspire confiance, sens de la justice et go\xFBt de l\u2019aventure
+      intellectuelle et spirituelle."
+  - astro_sign: 9
+    sign: Capricorne
+    date: "22 d\xE9cembre \u2013 21 janvier"
+    element: Terre
+    planet: Saturne
+    description: "<b>Sous la garde de Saturne, \xE0 l\u2019\xE9poque m\xE9di\xE9vale,</b>
+      le Capricorne avance avec patience et rigueur. Il progresse pierre apr\xE8s
+      pierre, cherchant une sagesse inscrite dans le temps. Saturne lui enseigne
+      la pers\xE9v\xE9rance, la responsabilit\xE9 et la ma\xEEtrise de soi, faisant
+      de lui un b\xE2tisseur de valeurs durables."
+  - astro_sign: 10
+    sign: Poisson
+    date: "22 janvier - 21 f\xE9vrier"
+    element: Air
+    planet: Uranus
+    description: "<b>Sous l\u2019influence d\u2019Uranus, dans l\u2019astrologie
+      m\xE9di\xE9vale,</b> le Verseau avance avec audace et clairvoyance. Il se tourne
+      vers les id\xE9es nouvelles et les ruptures f\xE9condes, port\xE9 par un esprit
+      libre et visionnaire. Uranus lui inspire invention, ind\xE9pendance et \xE9veil,
+      faisant de lui un porteur de pens\xE9es avant-gardistes et d\u2019\xE9lans
+      tourn\xE9s vers le renouveau et le progr\xE8s."
+  - astro_sign: 11
+    sign: Verseau
+    date: "22 f\xE9vrier - 20 mars"
+    element: Eau
+    planet: Neptune
+    description: "<b>Sous la guidance de Neptune, dans l\u2019astrologie m\xE9di\xE9vale,</b>
+      les Poissons avancent guid\xE9s par la sensibilit\xE9 et l\u2019intuition.
+      Ils \xE9voluent entre le visible et l\u2019invisible avec fluidit\xE9. Neptune
+      leur inspire imagination, compassion et myst\xE8re, faisant d\u2019eux des
+      \xEAtres tourn\xE9s vers la profondeur, le r\xEAve et la compr\xE9hension du
+      monde."

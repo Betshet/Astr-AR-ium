@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b306270d40927474785298f4cfb42e0f, type: 3}
+  m_Name: signastro_en
+  m_EditorClassIdentifier: 
+  signastro:
+  - astro_sign: 0
+    sign: Aries
+    date: "21 mars \u2013 19 avril"
+    element: Feu
+    planet: Mars
+    description: "<b>Under the impulse of Mars, in the 14th century, when astrology
+      was part of the sciences of the world,</b> Aries bursts forth like a spark
+      in the night.\L Its strength is that of beginnings, raw and sacred.\L It acts
+      before it doubts, guided by the pure instinct of fire.\L In its wake, everything
+      awakens, everything ignites."
+  - astro_sign: 1
+    sign: Taurus
+    date: "20 avril \u2013 20 mai"
+    element: Terre
+    planet: "V\xE9nus"
+    description: "<b>Guided by Venus, at a time when astrology was part of the sciences
+      of the world,</b> Taurus seeks stability, beauty, and harmony.\L It builds
+      with constancy and is attached to simple pleasures and the concrete world,
+      reflecting the gentleness attributed to its ruling planet."
+  - astro_sign: 2
+    sign: Gemini
+    date: "21 mai \u2013 20 juin"
+    element: Air
+    planet: Mercure
+    description: "<b>Under the guidance of Mercury, in ancient times when the sky
+      was read as a language,</b> Gemini stands out for its liveliness and curiosity.\L
+      It observes, learns, and constantly transmits, carried by movement.\L Mercury,
+      messenger of the gods, grants it a lively voice and an agile mind."
+  - astro_sign: 3
+    sign: Cancer
+    date: "21 juin \u2013 22 juillet"
+    element: Terre
+    planet: "V\xE9nus"
+    description: "<b>Guided by Venus, in the ancient order of the medieval world,</b>
+      Cancer seeks stability and beauty.\L It builds slowly, with constancy, and
+      is attached to simple pleasures, nature, and material security.\L Its bond
+      with the concrete reflects the gentleness and sensuality of its ruling planet."
+  - astro_sign: 4
+    sign: Leo
+    date: "23 juillet \u2013 22 ao\xFBt"
+    element: Feu
+    planet: Soleil
+    description: "<b>Ruled by the Sun, in the time of the Middle Ages,</b> Leo naturally
+      radiates.\L It creates, inspires, and guides with pride and generosity.\L Its
+      star grants it warmth and authority, as well as the responsibility to shine
+      without dominating."
+  - astro_sign: 5
+    sign: Virgo
+    date: "23 ao\xFBt \u2013 22 septembre"
+    element: Terre
+    planet: Mercure
+    description: "<b>Under the influence of Mercury, in the time of medieval knowledge,</b>
+      Virgo analyzes, sorts, and acts with discernment.\L Mercury grants it precision,
+      a sense of usefulness, and discernment, exercised with modesty."
+  - astro_sign: 6
+    sign: Libra
+    date: "23 septembre \u2013 22 octobre"
+    element: Air
+    planet: "V\xE9nus"
+    description: "<b>Under the grace of Venus, in medieval times,</b> Libra seeks
+      harmony in all its relationships.\L A sign of dialogue and aesthetics, it avoids
+      conflict and seeks to unite rather than divide.\L Its charm arises from its
+      ability to listen and understand both sides of a situation."
+  - astro_sign: 7
+    sign: Scorpio
+    date: "23 octobre \u2013 21 novembre"
+    element: Eau
+    planet: Pluton (et Mars)
+    description: "<b>Under the power of Pluto \u2014 and Mars in medieval astrology
+      \u2014</b> Scorpio turns toward what is hidden and unseen.\L A deep and intense
+      sign, it moves through trials with passion and regenerates through transformation.\L
+      Its stars grant it great inner strength and the power to be reborn after each
+      passage through the shadows."
+  - astro_sign: 8
+    sign: Sagittarius
+    date: "22 novembre \u2013 21 d\xE9cembre"
+    element: Feu
+    planet: Jupiter
+    description: "<b>Under the benevolence of Jupiter, in medieval times,</b> Sagittarius
+      moves forward carried by optimism and curiosity.\L It seeks to understand the
+      world through travel, study, philosophy, or faith.\L Jupiter inspires confidence,
+      a sense of justice, and a taste for intellectual and spiritual adventure."
+  - astro_sign: 9
+    sign: Capricorn
+    date: "22 d\xE9cembre \u2013 21 janvier"
+    element: Terre
+    planet: Saturne
+    description: "<b>Under the guardianship of Saturn, in medieval times,</b> Capricorn
+      moves forward with patience and discipline.\L It progresses stone by stone,
+      seeking a wisdom inscribed in time.\L Saturn teaches perseverance, responsibility,
+      and self-mastery, making it a builder of lasting values."
+  - astro_sign: 10
+    sign: Aquarius
+    date: "22 janvier - 21 f\xE9vrier"
+    element: Air
+    planet: Uranus
+    description: "<b>Under the influence of Uranus, in medieval astrology,</b> Aquarius
+      moves forward with boldness and insight.\L It turns toward new ideas and fertile
+      breaks, carried by a free and visionary spirit.\L Uranus inspires invention,
+      independence, and awakening, making it a bearer of avant-garde thinking and
+      impulses oriented toward renewal and progress."
+  - astro_sign: 11
+    sign: Pisces
+    date: "22 f\xE9vrier - 20 mars"
+    element: Eau
+    planet: Neptune
+    description: "<b>Under the guidance of Neptune, in medieval astrology,</b> Pisces
+      move forward guided by sensitivity and intuition.\L They evolve between the
+      visible and the invisible with fluidity.\L Neptune inspires imagination, compassion,
+      and mystery, making them beings oriented toward depth, dream, and understanding
+      of the world."

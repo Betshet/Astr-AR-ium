@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b306270d40927474785298f4cfb42e0f, type: 3}
+  m_Name: signastro_sp
+  m_EditorClassIdentifier: 
+  signastro:
+  - astro_sign: 0
+    sign: Aries
+    date: "21 mars \u2013 19 avril"
+    element: Feu
+    planet: Mars
+    description: "<b>Bajo el impulso de Marte, en el siglo XIV, cuando la astrolog\xEDa
+      formaba parte de las ciencias del mundo,</b> Aries irrumpe como una chispa
+      en la noche.\L Su fuerza es la del comienzo, bruta y sagrada.\L Act\xFAa antes
+      de dudar, guiado por el instinto puro del fuego.\L A su paso, todo se anima,
+      todo se enciende."
+  - astro_sign: 1
+    sign: Tauro
+    date: "20 avril \u2013 20 mai"
+    element: Terre
+    planet: "V\xE9nus"
+    description: "<b>Guiado por Venus, en una \xE9poca en la que la astrolog\xEDa
+      formaba parte de las ciencias del mundo,</b> Tauro busca la estabilidad, la
+      belleza y la armon\xEDa.\L Construye con constancia y se apega a los placeres
+      simples y al mundo concreto, reflejo de la dulzura atribuida a su planeta regente."
+  - astro_sign: 2
+    sign: "G\xE9minis"
+    date: "21 mai \u2013 20 juin"
+    element: Air
+    planet: Mercure
+    description: "<b>Bajo la gu\xEDa de Mercurio, en tiempos antiguos en los que
+      el cielo se le\xEDa como un lenguaje,</b> G\xE9minis se distingue por su vivacidad
+      y curiosidad.\L Observa, aprende y transmite sin cesar, impulsado por el movimiento.\L
+      Mercurio, mensajero de los dioses, le concede una palabra viva y una mente
+      \xE1gil."
+  - astro_sign: 3
+    sign: "C\xE1ncer"
+    date: "21 juin \u2013 22 juillet"
+    element: Terre
+    planet: "V\xE9nus"
+    description: "<b>Guiado por Venus, en el orden antiguo del mundo medieval,</b>
+      C\xE1ncer busca la estabilidad y la belleza.\L Construye lentamente, con constancia,
+      y se apega a los placeres simples, a la naturaleza y a la seguridad material.\L
+      Su v\xEDnculo con lo concreto refleja la dulzura y la sensualidad de su planeta
+      regente."
+  - astro_sign: 4
+    sign: Leo
+    date: "23 juillet \u2013 22 ao\xFBt"
+    element: Feu
+    planet: Soleil
+    description: "<b>Regido por el Sol, en la \xE9poca de la Edad Media,</b> Leo
+      irradia de manera natural.\L Crea, inspira y gu\xEDa con orgullo y generosidad.\L
+      Su astro le otorga calidez y autoridad, as\xED como la responsabilidad de iluminar
+      sin dominar."
+  - astro_sign: 5
+    sign: Virgo
+    date: "23 ao\xFBt \u2013 22 septembre"
+    element: Terre
+    planet: Mercure
+    description: "<b>Bajo la influencia de Mercurio, en tiempos de los saberes medievales,</b>
+      Virgo analiza, clasifica y act\xFAa con discernimiento.\L Mercurio le concede
+      precisi\xF3n, sentido de la utilidad y discernimiento, ejercidos con modestia."
+  - astro_sign: 6
+    sign: Libra
+    date: "23 septembre \u2013 22 octobre"
+    element: Air
+    planet: "V\xE9nus"
+    description: "<b>Bajo la gracia de Venus, en la \xE9poca medieval,</b> Libra
+      busca la armon\xEDa en todas sus relaciones.\L Signo de di\xE1logo y est\xE9tica,
+      huye del conflicto y busca unir en lugar de separar.\L Su encanto nace de su
+      capacidad para escuchar y comprender ambos lados de una situaci\xF3n."
+  - astro_sign: 7
+    sign: Escorpio
+    date: "23 octobre \u2013 21 novembre"
+    element: Eau
+    planet: Pluton (et Mars)
+    description: "<b>Bajo el poder de Plut\xF3n \u2014y de Marte en la astrolog\xEDa
+      medieval\u2014,</b> Escorpio se orienta hacia lo oculto y lo invisible.\L Signo
+      profundo e intenso, atraviesa las pruebas con pasi\xF3n y se regenera a trav\xE9s
+      de la transformaci\xF3n.\L Sus astros le conceden una gran fuerza interior
+      y el poder de renacer tras cada paso por la sombra."
+  - astro_sign: 8
+    sign: Sagitario
+    date: "22 novembre \u2013 21 d\xE9cembre"
+    element: Feu
+    planet: Jupiter
+    description: "<b>Bajo la benevolencia de J\xFApiter, en la \xE9poca medieval</b>,
+      Sagitario avanza impulsado por el optimismo y la curiosidad.\L Busca comprender
+      el mundo mediante el viaje, el estudio, la filosof\xEDa o la fe.\L J\xFApiter
+      le inspira confianza, sentido de la justicia y gusto por la aventura intelectual
+      y espiritual."
+  - astro_sign: 9
+    sign: Capricornio
+    date: "22 d\xE9cembre \u2013 21 janvier"
+    element: Terre
+    planet: Saturne
+    description: "<b>Bajo la custodia de Saturno, en la \xE9poca medieval,</b> Capricornio
+      avanza con paciencia y rigor.\L Progresa piedra a piedra, buscando una sabidur\xEDa
+      inscrita en el tiempo.\L Saturno le ense\xF1a la perseverancia, la responsabilidad
+      y el dominio de s\xED mismo, convirti\xE9ndolo en un constructor de valores
+      duraderos."
+  - astro_sign: 10
+    sign: Acuario
+    date: "22 janvier - 21 f\xE9vrier"
+    element: Air
+    planet: Uranus
+    description: "<b>Bajo la influencia de Urano, en la astrolog\xEDa medieval,</b>
+      Acuario avanza con audacia y clarividencia.\L Se orienta hacia ideas nuevas
+      y rupturas fecundas, impulsado por un esp\xEDritu libre y visionario.\L Urano
+      le inspira invenci\xF3n, independencia y despertar, convirti\xE9ndolo en portador
+      de pensamientos de vanguardia y de impulsos orientados al renacimiento y al
+      progreso."
+  - astro_sign: 11
+    sign: Piscis
+    date: "22 f\xE9vrier - 20 mars"
+    element: Eau
+    planet: Neptune
+    description: "<b>Bajo la gu\xEDa de Neptuno, en la astrolog\xEDa medieval,</b>
+      Piscis avanza guiado por la sensibilidad y la intuici\xF3n.\L Evoluciona entre
+      lo visible y lo invisible con fluidez.\L Neptuno le inspira imaginaci\xF3n,
+      compasi\xF3n y misterio, convirti\xE9ndolo en seres orientados hacia la profundidad,
+      el sue\xF1o y la comprensi\xF3n del mundo."

@@ -23,6 +23,7 @@ Poisson
 public class Text_data
 {
   public Signastro astro_sign = Signastro.Belier;
+  public string sign = "";
   public string date = "";
   public string element ="";
   public string planet="";
